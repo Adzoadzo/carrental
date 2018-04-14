@@ -26,7 +26,7 @@
 	</head>
 
 	<body>
-		<h1>CAR RENTAL APPLICATION</h1>
+		<div ng-include="'carrental.html'"></div>
 	</body>
 
 	<script src="assets/js/angular.min.js"></script>
@@ -44,7 +44,7 @@
 		app.config(function($routeProvider){
 			$routeProvider
 			.when("/", {
-				templateURL : "views/prvi.html",
+				templateURL : "views/contact.html",
 				controller : "siteController"
 			})
 			.when("/about", {
