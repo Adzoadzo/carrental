@@ -1,77 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" ng-app="carrental-app" ng-controller="siteController" class="perfect-scrollbar-off {{mobileNavigationOpen}}">
-	<head>
-		<title>Car Trade a Transportation Category Bootstrap Responsive Template | Home :: w3layouts</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="keywords" content="Car Trade Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-			SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<!-- Custom Theme files -->
-		<link href="../assets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-		<link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="all">   
-		<link href="../assets/css/font-awesome.css" rel="stylesheet">	<!-- font-awesome icons -->     
-		<link rel="stylesheet" href="../assets/css/flexslider.css" type="text/css" media="screen" />  <!-- flexslider-CSS -->  
-		<link rel="stylesheet" href="../assets/css/chocolat.css" type="text/css" media="screen"> 
-		<!-- //Custom Theme files --> 
-		<!-- js -->
-		<script src="../assets/js/jquery-2.2.3.min.js"></script>  
-		<!-- //js -->
-		<!-- web-fonts 
-		<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-		<link href="//fonts.googleapis.com/css?family=Aguafina+Script" rel="stylesheet">
-		<link href="//fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet"> 
-		 //web-fonts -->
-		<link href="https://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
-	</head>
+    
+    <head>
+        <title>Car Trade a Transportation Category Bootstrap Responsive Template | Home :: w3layouts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Car Trade Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+                    SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- Custom Theme files -->
+        <link href="../assets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+        <link href="../assets/css/style.css" type="text/css" rel="stylesheet" media="all">   
+        <link href="../assets/css/font-awesome.css" rel="stylesheet">	<!-- font-awesome icons -->     
+        <link rel="stylesheet" href="../assets/css/flexslider.css" type="text/css" media="screen" />  <!-- flexslider-CSS -->  
+        <link rel="stylesheet" href="../assets/css/chocolat.css" type="text/css" media="screen"> 
+        <!-- //Custom Theme files --> 
+        <!-- js -->
+        <script src="../assets/js/jquery-2.2.3.min.js"></script>  
+        <!-- //js -->
+        <!-- web-fonts 
+        <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Aguafina+Script" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet"> 
+         //web-fonts -->
+        <link href="https://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+    </head>
 
-	<body>
-		<div ng-include="'carrental.html'"></div>
-	</body>
+<body>
+    <div ng-include="'carrental.html'"></div>
+</body>
 
-	<script src="assets/js/angular.min.js"></script>
-	<script src="assets/js/angular-route.js"></script>
-	<script src="assets/js/xeditable.min.js"></script>
-	<script src="assets/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/angular-route.js"></script>
+<script src="assets/js/xeditable.min.js"></script>
+<script src="assets/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
-	<script src="controllers/site-controller.js"></script>
+<script src="controllers/site-controller.js"></script>
 
-	<script>
-		var app = angular.module("carrental-app", ["ngRoute", "xeditable", "ui.bootstrap"]);
+<script>
+    var app = angular.module("carrental-app", ["ngRoute", "xeditable", "ui.bootstrap"]);
 
-		app.controller('siteController', SiteController);
+    app.controller('siteController', SiteController);
 
-		app.config(function($routeProvider){
-			$routeProvider
-			.when("/", {
-				templateURL : "views/contact.html",
-				controller : "siteController"
-			})
-			.when("/about", {
-				templateURL : "views/about.html",
-				controller : "siteController"
-			})
-			.when("/features", {
-				templateURL : "views/features.html",
-				controller : "siteController"
-			})
-			.when("/services", {
-				templateURL : "views/services.html",
-				controller : "siteController"
-			})
-			.when("/gallery", {
-				templateURL : "views/gallery.html",
-				controller : "siteController"
-			})
-			.when("/contact", {
-				templateURL : "views/contact.html",
-				controller : "siteController"
-			})
-			.when("/subscribe", {
-				templateURL : "views/subscribe.html",
-				controller : "siteController"
-			})
-		});
-	</script>
-
+    app.config(function($routeProvider) {
+        $routeProvider
+        .when("/", {
+            templateUrl : "views/about.html",
+            controller : "siteController"
+        })
+        .when("/contact", {
+            templateUrl : "views/contact.html",
+            controller : "siteController"
+        })
+        .when("/features", {
+            templateUrl : "views/features.html",
+            controller : "siteController"
+        })
+        .when("/gallery", {
+            templateUrl : "views/gallery.html",
+            controller : "siteController"
+        })
+    });
+</script>
 </html>
