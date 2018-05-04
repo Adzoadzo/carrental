@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/mujoh/carrental#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "mongodb": "^3.0.7",
+    "mongojs": "^2.5.0",
     "nodemon": "^1.17.3"
   }
 }
