@@ -18,6 +18,7 @@
   "homepage": "https://github.com/mujoh/carrental#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "mongodb": "^3.0.7",
     "nodemon": "^1.17.3"
   }
 }

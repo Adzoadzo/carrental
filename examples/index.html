@@ -36,11 +36,13 @@
 <script src="assets/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
 <script src="controllers/site-controller.js"></script>
+<script src="controllers/registration-controller.js"></script>
 
 <script>
     var app = angular.module("carrental-app", ["ngRoute", "xeditable", "ui.bootstrap"]);
 
     app.controller('siteController', SiteController);
+    app.controller('registrationController', RegistrationController);
 
     app.config(function($routeProvider) {
         $routeProvider
@@ -48,17 +50,13 @@
             templateUrl : "views/about.html",
             controller : "siteController"
         })
-        .when("/contact", {
-            templateUrl : "views/contact.html",
+        .when("/login", {
+            templateUrl : "views/login.html",
             controller : "siteController"
         })
-        .when("/features", {
-            templateUrl : "views/features.html",
-            controller : "siteController"
-        })
-        .when("/gallery", {
-            templateUrl : "views/gallery.html",
-            controller : "siteController"
+        .when("/register", {
+            templateUrl : "views/register.html",
+            controller : "registrationController"
         })
     });
 </script>
