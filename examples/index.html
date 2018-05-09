@@ -37,18 +37,24 @@
 
 <script src="controllers/site-controller.js"></script>
 <script src="controllers/registration-controller.js"></script>
+<script src="controllers/cars-controller.js"></script>
 
 <script>
     var app = angular.module("carrental-app", ["ngRoute", "xeditable", "ui.bootstrap"]);
 
     app.controller('siteController', SiteController);
     app.controller('registrationController', RegistrationController);
+    app.controller('carsController', CarsController);
 
     app.config(function($routeProvider) {
         $routeProvider
         .when("/", {
             templateUrl : "views/about.html",
             controller : "siteController"
+        })
+        .when("/cars", {
+            templateUrl : "views/cars.html",
+            controller : "carsController"
         })
         .when("/login", {
             templateUrl : "views/login.html",

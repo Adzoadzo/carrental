@@ -512,11 +512,23 @@ p{
 } 
 /*-- //services --*/ 
 
+/*-- registration --*/
 .registration{
     background-color: white;
     position: relative;
     padding: 50px
 }
+.register-message{
+    margin-top: 80px;
+    font-size: 25px;
+}
+/*-- //registration --*/
+
+/*-- cars --*/
+.cars{
+    background-color: white;
+}
+/*-- //cars --*/
 
 /*-- gallery --*/
 .gallry-agile-grids {
