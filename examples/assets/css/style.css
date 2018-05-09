@@ -27,6 +27,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .wrapper{
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 p{
@@ -127,6 +129,33 @@ nav.navbar.navbar-default.navbar-fixed-top.top-nav-collapse span {
 }
 div#scrollzipPoint {
     top: -20px !important;
+}
+.top-bar{
+    background-color: #f3b927;
+    color: #00000075;
+    min-height: 35px;
+    padding: 1px 0;
+}
+.top-bar ul li{
+    float: left;
+    line-height: 30px;
+    position: relative;
+    padding: 0 15px;
+    font-size: 13px;
+    white-space: nowrap;
+    list-style-type: none;
+}
+.center{
+    font-family: 'Lato', sans-serif;
+    margin: auto;
+    float: none;
+}
+.left-top{
+    margin: 0 25px;
+    float: left;
+}
+.top-bar-txt{
+    line-height: 30px;
 }
 /*-- //header --*/ 
 .jarallax {
@@ -1658,6 +1687,13 @@ h1.w3lslogo a span {
     width: 75%; 
 	right: -37%;
 }
+.wrapper{
+    margin: 0px;
+    width: 100%;
+}
+.container{
+    width: 100%;
+}
 }
 @media(max-width:767px){ 
 h1.w3lslogo {
@@ -2231,5 +2267,11 @@ h3.agileits-title {
 .banner-text h2, .banner-text h3 {
     font-size: 2.3em;
 }
+}
+@media only screen and (max-width:620px) {
+    .wrapper{
+        margin-left: 0px;
+        width: 100%;
+    }
 }
 /*-- //responsive-design --*/
