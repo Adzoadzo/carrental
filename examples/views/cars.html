@@ -1,29 +1,13 @@
 <!-- CARS -->
 <div class="cars">
     <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src="assets/images/arteon.png" alt="Card image cap">
+        <div class="card" ng-repeat="car in cars_list">
+          <img class="card-img-top" src="{{car.car_picture}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Volkswagen Arteon</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title">{{car.car_name}}</h5>
+            <p class="card-text">{{car.car_price}}</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
         </div>
-        <div class="card">
-          <img class="card-img-top" src="assets/images/golf.png" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Volkswagen Golf 7+</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="assets/images/superb.png" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Skoda SuperB</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
+    </div>
 </div>

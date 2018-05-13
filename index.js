@@ -1,25 +1,33 @@
 const express = require('express');
+const bodyparser = require("body-parser");
 const app = express();
+const MongoClient = require('mongodb').MongoClient;
 
-var mongo = require('mongojs');
-var db = mongo('localhost:27017/carrental', ['users'])
-
-var body_parser = require('body-parser');
-app.use(body_parser.json());
+var MongoId = require('mongodb').ObjectID;
+var database;
 
 app.use('/', express.static('examples'));
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded({extended: true})); // to support URL-encoded bodies
 
-app.get('/users', function(req, res){
-    db.users.find(function(err, docs){
-     res.json(docs);
-   });
-  });
+app.get('/getCar', function(request, response){
+  database.collection('cars').find().toArray((err, cars) => {
+    if (err) return console.log(err);
+    response.setHeader('Content-Type', 'application/json');
+    response.send(cars);
+  })
+});
 
 app.post('/user', function(req, res){
-    req.body._id = null;
-    db.users.insert(req.body, function(err, doc){
-     res.json(doc);
-    });
+  req.body._id = null;
+  database.users.insert(req.body, function(err, doc){
+    res.json(doc);
+  });
  });
 
-app.listen(3000, () => console.log('Car rental app is listening on port 3000!'));
+MongoClient.connect('mongodb://localhost:27017', function (err, client) {
+  if (err) throw err;
+
+  database = client.db('carrental');
+  app.listen(3000, () => console.log('Example app listening on port 3000!'))
+}); 
