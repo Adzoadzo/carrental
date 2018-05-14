@@ -195,89 +195,45 @@ p{
 /*-- //about --*/ 
 
 .main-panel{
-    
+    height: 100%;
 }
 
 /*-- login-form --*/
-.login-form {
-    padding: 5em;
-    border: 5px solid #ffc107;
-    text-align: left;
+.form-signin {
+    text-align: center!important;
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .checkbox {
+    font-weight: 400;
+}
+.form-signin .form-control {
     position: relative;
-    background: #fff;
-    margin-top: -12em;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
 }
-.login-form:before {
-    content: '';
-    display: block;
-    border: 5px solid rgb(255, 193, 7);
-    width: 103%;
-    height: 103%;
-    position: absolute;
-    left: 3%;
-    top: 3%;
-	z-index: -1;
+.form-signin .form-control:focus {
+    z-index: 2;
 }
-.login-form h5 {
-    font-size: 2.2em;
-    color: #000;
-    text-align: center;
-    margin-bottom: 1.5em;
-    line-height: 1em;
-    letter-spacing: 2px;
-    font-weight: 700;
-} 
-.login-form p {
-    font-size: 0.9em;
-    color: #000;
-    margin: 1.5em 0 .5em;
-    letter-spacing: 6px;
-} 
-.login-form input[type="text"],.login-form input[type="email"],.login-form input[type="password"] {
-    outline: none;
-    font-size: 1em;
-    color: #999;
-    padding: .7em 1em;
-    margin: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-    -webkit-appearance: none;
-    display: block;
-    background: transparent;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -o-border-radius: 2px;
-    -ms-border-radius: 2px;
-    border-radius: 2px;
-} 
-.login-form input[type="submit"] {
-    font-size: 1.1em;
-    color: #fff;
-    background: #ffc107;
-    border: 1px solid #ffc107;
-    outline: none;
-    cursor: pointer;
-    padding: .7em 1em;
-    -webkit-appearance: none;
-    width: 100%;
-	text-transform: uppercase;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
-    border-radius: 2px;
-    margin-top: 2em;
-    transition: 0.5s all;
-    -webkit-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    -ms-transition: 0.5s all; 
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
-.login-form input[type="submit"]:hover {
-    background: transparent;
-    color:#ffc107;   
-}  
-/*-- //login-form --*/ 
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.login-form{
+    background-color: white;
+    height: 100%;
+}
+
 /*-- services --*/ 
 .services {
     background: url(../images/bg.jpg)no-repeat center fixed;
