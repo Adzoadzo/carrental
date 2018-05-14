@@ -20,8 +20,10 @@ app.get('/getCar', function(request, response){
 
 app.post('/user', function(req, res){
   req.body._id = null;
-  database.users.insert(req.body, function(err, doc){
-    res.json(doc);
+  database.collection('users').insert(req.body, function(err, user){
+    if (err) return console.log(err);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(user);
   });
  });
 
