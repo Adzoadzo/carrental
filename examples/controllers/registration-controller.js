@@ -5,6 +5,7 @@ function RegistrationController($scope, $http){
         $http.post('/user', $scope.user).then(function(data){
           $scope.user = null;
           $scope.user_list.push(data);
+          console.log("aaa");
         });
       }
 }

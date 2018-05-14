@@ -20,11 +20,17 @@ app.get('/getCar', function(request, response){
 
 app.post('/user', function(req, res){
   req.body._id = null;
-  database.collection('users').insert(req.body, function(err, user){
-    if (err) return console.log(err);
-    res.setHeader('Content-Type', 'application/json');
-    res.send(user);
-  });
+  var user = req.body;
+  if(user.password == user.password_confirm){
+    database.collection('users').insert(req.body, function(err, user){
+      if (err) return console.log(err);
+      res.setHeader('Content-Type', 'application/json');
+      res.send(user);
+    });
+  }else{
+    console.log("error");
+  }
+
  });
 
 MongoClient.connect('mongodb://localhost:27017', function (err, client) {
