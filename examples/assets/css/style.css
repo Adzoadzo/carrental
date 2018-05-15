@@ -24,7 +24,6 @@ body a{
 }
 h1,h2,h3,h4,h5,h6{
 	margin:0;  
-	font-family: 'Petit Formal Script', cursive; 
 }
 
 .wrapper{
@@ -1274,7 +1273,6 @@ p{
     padding-left: .5em;
     font-style: italic;
     letter-spacing: 5px;
-    font-family: 'Petit Formal Script', cursive;
     font-weight: 800;
 }
 /*-- //modal --*/

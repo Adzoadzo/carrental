@@ -12,6 +12,13 @@ function CarsController($scope, $http){
           alert(res.status);
         }
       };
+      
+      $scope.get_carById = function(car_id){
+        console.log("get car with id "+ car_id);
+        $http.get('/singleCar/'+car_id).then(function(data){
+          console.log(data);
+        });
+      }
 
       init();
 }
