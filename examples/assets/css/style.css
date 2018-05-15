@@ -441,6 +441,11 @@ p{
     background-color: white;
     padding: 20px;
 }
+
+.card{
+    margin-top: 10px;
+    height: 290px;
+}
 /*-- //cars --*/
 
 /*-- gallery --*/

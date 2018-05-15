@@ -1,13 +1,14 @@
 <!-- CARS -->
 <div class="cars">
-    <div class="card-deck">
-        <div class="card" ng-repeat="car in cars_list">
-          <img class="card-img-top" src="{{car.car_picture}}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">{{car.car_name}}</h5>
-            <p class="card-text">{{car.car_price}}</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+    <div class="row">
+        <div class="col-sm-3" ng-repeat="car in cars_list">
+            <div class="card">
+                <img class="card-img-top" src="{{car.car_picture}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{car.car_name}}</h5>
+                  <p class="card-text">{{car.car_price}}</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
         </div>
-    </div>
 </div>
