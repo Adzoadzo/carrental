@@ -223,6 +223,11 @@ p{
 .home{
     background-color: #FFFFFF;
 }
+.rowHome{
+    text-align: center; 
+    font-size: 50px; 
+    font-weight: 100
+}
 /*-- services --*/
 .services {
     background: url(../images/bg.jpg)no-repeat center fixed;
@@ -2188,6 +2193,8 @@ p{
 }
 .grid_rezFormHome {
     width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
     padding-top: 40px;
     padding-bottom: 20px;
     background-color: rgba(0, 0, 0, 0.8);
@@ -2196,6 +2203,11 @@ p{
     border-bottom:1px solid rgba(0, 0, 0, 0.9);
     border-right: 1px solid rgba(0, 0, 0, 0.9);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+.centerMe{
+    margin-right: auto;
+    margin-left: auto;
+    width: 750px;
 }
 .grid_2_rez {
     width: 210px;
