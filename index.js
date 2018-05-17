@@ -66,7 +66,7 @@ app.post('/login', function(req, res) {
     });
 });
 
-app.get('/carrental/getCar', function(request, response) {
+app.get('/getCar', function(request, response) {
     database.collection('cars').find().toArray((err, cars) => {
         if (err) return console.log(err);
         response.setHeader('Content-Type', 'application/json');
@@ -91,7 +91,7 @@ app.get('/carrental/getCar', function(request, response) {
     }
 });*/
 
-app.post('/carrental/registeruser', function(req, res) {
+app.post('/register', function(req, res) {
     req.body._id = null;
     var user = req.body;
     database.collection('users').insert(user, function(err, data) {
@@ -101,7 +101,7 @@ app.post('/carrental/registeruser', function(req, res) {
     })
 });
 
-app.get("/carrental/singleCar/:car_id", function(req, res) {
+app.get("/singleCar/:car_id", function(req, res) {
     database.collection('cars').findOne({
         _id: new MongoId(req.params.id)
     }, function(err, doc) {

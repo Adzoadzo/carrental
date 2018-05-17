@@ -13,7 +13,7 @@ function CarsController($scope, $http) {
   }
 
   var get_cars = function() {
-      $http.get('/carrental/getCar', config).then(function(res) {
+      $http.get('/getCar', config).then(function(res) {
               $scope.cars_list = res.data;
           }),
           function(res) {
@@ -23,7 +23,7 @@ function CarsController($scope, $http) {
 
   $scope.get_carById = function(car_id) {
       console.log("get car with id " + car_id);
-      $http.get('/carrental/singleCar/' + car_id, config).then(function(data) {
+      $http.get('/singleCar/' + car_id, config).then(function(data) {
           console.log(data);
       });
   }

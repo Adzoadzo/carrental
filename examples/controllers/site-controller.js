@@ -11,6 +11,7 @@ function SiteController($scope, $http){
     $scope.login = function(credentials){
         $http.post('/login', credentials).then(function(response){
             localStorage.setItem('user',response.data.token)
+            toastr.success('Hello world!', 'Toastr fun!');
         }),function(error){
             console.log(error);
         }
