@@ -219,6 +219,10 @@ p{
     background-color: white;
     height: 100%;
 }
+/*-- home page --*/
+.home{
+    background-color: #FFFFFF;
+}
 /*-- services --*/
 .services {
     background: url(../images/bg.jpg)no-repeat center fixed;
