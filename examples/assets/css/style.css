@@ -223,10 +223,15 @@ p{
 .home{
     background-color: #FFFFFF;
 }
-.rowHome{
+.rowTitle{
     text-align: center; 
     font-size: 50px; 
     font-weight: 100
+}
+.rowText{
+    font-size: 40px; 
+    margin-top: 30px;
+    text-align: center;
 }
 /*-- services --*/
 .services {
