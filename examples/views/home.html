@@ -1,183 +1,186 @@
 <div class="home">
-	<div class="row centerMe">
-		<form action="/" id="reservationHome" method="post" novalidate="novalidate">
-			 <div class="grid_rezFormHome" style="border: 1px solid none">
-					<!--<div class="imgNoCosts">
-						 <img src="/Images/nohidden.png" alt="No Hidden Cost" title="No Hidden Costs">
-					</div>-->
-					<p style=" font: 700 22px/10px 'Open Sans',sans-serif; margin-left: 20px; color: white">&nbsp;Reserve now,</p>
-					<p style=" font: 700 22px/10px 'Open Sans',sans-serif; margin-top: 7px ;margin-left: 60px; color: white">
-						 pay later !&nbsp;
-						 <!-- <i class="fa fa-check fontawesome" style="margin-top: -20px; font-size: 40px; color:#a9f114"></i> -->
-					</p>
-					<br>                                                                             
-					<select class="grid_comboHome" id="OfficeOut" name="OfficeOut" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
-						 <option value="">- Pick up Location -</option>
-						 <option value="14">Belgrad Airport</option>
-						 <option value="15">Dubrovnik Airport</option>
-						 <option value="13">Ljubljana Airport</option>
-						 <option value="7">Rijeka Airport</option>
-						 <option value="6">Rijeka Downtown - bus station</option>
-						 <option value="11">Sarajevo Airport</option>
-						 <option value="5">Split Airport</option>
-						 <option value="1">Split Downtown / Port</option>
-						 <option value="8">Zadar Airport</option>
-						 <option value="3">Zadar Downtown</option>
-						 <option value="10">Zagreb Airport</option>
-						 <option value="9">Zagreb Downtown - railway station</option>
-					</select>
-					<input value="" class="grid_2Home hasDatepicker" data-val="true" data-val-date="The field Start Date must be a date." data-val-required="*" id="TimeOut" name="TimeOut" placeholder="- Date Out -" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px" type="text"> 
-					<select class="grid_1" id="MinuteOut" name="MinuteOut" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
-						 <option value="0">00:00</option>
-						 <option value="1">00:30</option>
-						 <option value="2">01:00</option>
-						 <option value="3">01:30</option>
-						 <option value="4">02:00</option>
-						 <option value="5">02:30</option>
-						 <option value="6">03:00</option>
-						 <option value="7">03:30</option>
-						 <option value="8">04:00</option>
-						 <option value="9">04:30</option>
-						 <option value="10">05:00</option>
-						 <option value="11">05:30</option>
-						 <option value="12">06:00</option>
-						 <option value="13">06:30</option>
-						 <option value="14">07:00</option>
-						 <option value="15">07:30</option>
-						 <option value="16">08:00</option>
-						 <option value="17">08:30</option>
-						 <option value="18">09:00</option>
-						 <option value="19">09:30</option>
-						 <option value="20">10:00</option>
-						 <option value="21">10:30</option>
-						 <option value="22">11:00</option>
-						 <option value="23">11:30</option>
-						 <option selected="selected" value="24">12:00</option>
-						 <option value="25">12:30</option>
-						 <option value="26">13:00</option>
-						 <option value="27">13:30</option>
-						 <option value="28">14:00</option>
-						 <option value="29">14:30</option>
-						 <option value="30">15:00</option>
-						 <option value="31">15:30</option>
-						 <option value="32">16:00</option>
-						 <option value="33">16:30</option>
-						 <option value="34">17:00</option>
-						 <option value="35">17:30</option>
-						 <option value="36">18:00</option>
-						 <option value="37">18:30</option>
-						 <option value="38">19:00</option>
-						 <option value="39">19:30</option>
-						 <option value="40">20:00</option>
-						 <option value="41">20:30</option>
-						 <option value="42">21:00</option>
-						 <option value="43">21:30</option>
-						 <option value="44">22:00</option>
-						 <option value="45">22:30</option>
-						 <option value="46">23:00</option>
-						 <option value="47">23:30</option>
-					</select>
-					<span class="field-validation-valid" data-valmsg-for="OfficeOut" data-valmsg-replace="true" id="OfficeOutValidarionError" style="color:red"></span>
-					<span class="field-validation-valid" data-valmsg-for="TimeOut" data-valmsg-replace="true" id="TimeOutValidarionError" style="color:red"></span>
-					<br><br>
-					<select class="grid_comboHome" id="OfficeIn" name="OfficeIn" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
-						 <option value="">- Drop off Location -</option>
-						 <option value="14">Belgrad Airport</option>
-						 <option value="15">Dubrovnik Airport</option>
-						 <option value="13">Ljubljana Airport</option>
-						 <option value="7">Rijeka Airport</option>
-						 <option value="6">Rijeka Downtown - bus station</option>
-						 <option value="11">Sarajevo Airport</option>
-						 <option value="5">Split Airport</option>
-						 <option value="1">Split Downtown / Port</option>
-						 <option value="8">Zadar Airport</option>
-						 <option value="3">Zadar Downtown</option>
-						 <option value="10">Zagreb Airport</option>
-						 <option value="9">Zagreb Downtown - railway station</option>
-					</select>
-					<input value="" class="grid_2Home hasDatepicker" data-val="true" data-val-date="The field End Date must be a date." data-val-required="*" id="TimeIn" name="TimeIn" placeholder="- Date In -" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px" type="text"> 
-					<select class="grid_1" id="MinuteIn" name="MinuteIn" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
-						 <option value="0">00:00</option>
-						 <option value="1">00:30</option>
-						 <option value="2">01:00</option>
-						 <option value="3">01:30</option>
-						 <option value="4">02:00</option>
-						 <option value="5">02:30</option>
-						 <option value="6">03:00</option>
-						 <option value="7">03:30</option>
-						 <option value="8">04:00</option>
-						 <option value="9">04:30</option>
-						 <option value="10">05:00</option>
-						 <option value="11">05:30</option>
-						 <option value="12">06:00</option>
-						 <option value="13">06:30</option>
-						 <option value="14">07:00</option>
-						 <option value="15">07:30</option>
-						 <option value="16">08:00</option>
-						 <option value="17">08:30</option>
-						 <option value="18">09:00</option>
-						 <option value="19">09:30</option>
-						 <option value="20">10:00</option>
-						 <option value="21">10:30</option>
-						 <option value="22">11:00</option>
-						 <option value="23">11:30</option>
-						 <option selected="selected" value="24">12:00</option>
-						 <option value="25">12:30</option>
-						 <option value="26">13:00</option>
-						 <option value="27">13:30</option>
-						 <option value="28">14:00</option>
-						 <option value="29">14:30</option>
-						 <option value="30">15:00</option>
-						 <option value="31">15:30</option>
-						 <option value="32">16:00</option>
-						 <option value="33">16:30</option>
-						 <option value="34">17:00</option>
-						 <option value="35">17:30</option>
-						 <option value="36">18:00</option>
-						 <option value="37">18:30</option>
-						 <option value="38">19:00</option>
-						 <option value="39">19:30</option>
-						 <option value="40">20:00</option>
-						 <option value="41">20:30</option>
-						 <option value="42">21:00</option>
-						 <option value="43">21:30</option>
-						 <option value="44">22:00</option>
-						 <option value="45">22:30</option>
-						 <option value="46">23:00</option>
-						 <option value="47">23:30</option>
-					</select>
-					<span class="field-validation-valid" data-valmsg-for="OfficeIn" data-valmsg-replace="true" id="OfficeInValidarionError" style="color:red"></span>    
-					<span class="field-validation-valid" data-valmsg-for="TimeIn" data-valmsg-replace="true" id="TimeInValidarionError" style="color:red"></span> <br>
-					<div id="corporate" style="margin-left: 27px; height: 20px; display: none;">
-						 <input type="text" id="NoCorporate" name="NoCorporate" class="grid_2_rezcc" style="padding:5px; margin-top:15px; font-size: 17px" placeholder="name / number">                                                                   
+	<div class="mainHome">
+			<div class="row centerMe">
+					<form action="/" id="reservationHome" method="post" novalidate="novalidate">
+						 <div class="grid_rezFormHome" style="border: 1px solid none">
+								<!--<div class="imgNoCosts">
+									 <img src="/Images/nohidden.png" alt="No Hidden Cost" title="No Hidden Costs">
+								</div>-->
+								<p style=" font: 700 22px/10px 'Open Sans',sans-serif; margin-left: 20px; color: white">&nbsp;Reserve now,</p>
+								<p style=" font: 700 22px/10px 'Open Sans',sans-serif; margin-top: 7px ;margin-left: 60px; color: white">
+									 pay later !&nbsp;
+									 <!-- <i class="fa fa-check fontawesome" style="margin-top: -20px; font-size: 40px; color:#a9f114"></i> -->
+								</p>
+								<br>                                                                             
+								<select class="grid_comboHome" id="OfficeOut" name="OfficeOut" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
+									 <option value="">- Pick up Location -</option>
+									 <option value="14">Belgrad Airport</option>
+									 <option value="15">Dubrovnik Airport</option>
+									 <option value="13">Ljubljana Airport</option>
+									 <option value="7">Rijeka Airport</option>
+									 <option value="6">Rijeka Downtown - bus station</option>
+									 <option value="11">Sarajevo Airport</option>
+									 <option value="5">Split Airport</option>
+									 <option value="1">Split Downtown / Port</option>
+									 <option value="8">Zadar Airport</option>
+									 <option value="3">Zadar Downtown</option>
+									 <option value="10">Zagreb Airport</option>
+									 <option value="9">Zagreb Downtown - railway station</option>
+								</select>
+								<input value="" class="grid_2Home hasDatepicker" data-val="true" data-val-date="The field Start Date must be a date." data-val-required="*" id="TimeOut" name="TimeOut" placeholder="- Date Out -" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px" type="text"> 
+								<select class="grid_1" id="MinuteOut" name="MinuteOut" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
+									 <option value="0">00:00</option>
+									 <option value="1">00:30</option>
+									 <option value="2">01:00</option>
+									 <option value="3">01:30</option>
+									 <option value="4">02:00</option>
+									 <option value="5">02:30</option>
+									 <option value="6">03:00</option>
+									 <option value="7">03:30</option>
+									 <option value="8">04:00</option>
+									 <option value="9">04:30</option>
+									 <option value="10">05:00</option>
+									 <option value="11">05:30</option>
+									 <option value="12">06:00</option>
+									 <option value="13">06:30</option>
+									 <option value="14">07:00</option>
+									 <option value="15">07:30</option>
+									 <option value="16">08:00</option>
+									 <option value="17">08:30</option>
+									 <option value="18">09:00</option>
+									 <option value="19">09:30</option>
+									 <option value="20">10:00</option>
+									 <option value="21">10:30</option>
+									 <option value="22">11:00</option>
+									 <option value="23">11:30</option>
+									 <option selected="selected" value="24">12:00</option>
+									 <option value="25">12:30</option>
+									 <option value="26">13:00</option>
+									 <option value="27">13:30</option>
+									 <option value="28">14:00</option>
+									 <option value="29">14:30</option>
+									 <option value="30">15:00</option>
+									 <option value="31">15:30</option>
+									 <option value="32">16:00</option>
+									 <option value="33">16:30</option>
+									 <option value="34">17:00</option>
+									 <option value="35">17:30</option>
+									 <option value="36">18:00</option>
+									 <option value="37">18:30</option>
+									 <option value="38">19:00</option>
+									 <option value="39">19:30</option>
+									 <option value="40">20:00</option>
+									 <option value="41">20:30</option>
+									 <option value="42">21:00</option>
+									 <option value="43">21:30</option>
+									 <option value="44">22:00</option>
+									 <option value="45">22:30</option>
+									 <option value="46">23:00</option>
+									 <option value="47">23:30</option>
+								</select>
+								<span class="field-validation-valid" data-valmsg-for="OfficeOut" data-valmsg-replace="true" id="OfficeOutValidarionError" style="color:red"></span>
+								<span class="field-validation-valid" data-valmsg-for="TimeOut" data-valmsg-replace="true" id="TimeOutValidarionError" style="color:red"></span>
+								<br><br>
+								<select class="grid_comboHome" id="OfficeIn" name="OfficeIn" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
+									 <option value="">- Drop off Location -</option>
+									 <option value="14">Belgrad Airport</option>
+									 <option value="15">Dubrovnik Airport</option>
+									 <option value="13">Ljubljana Airport</option>
+									 <option value="7">Rijeka Airport</option>
+									 <option value="6">Rijeka Downtown - bus station</option>
+									 <option value="11">Sarajevo Airport</option>
+									 <option value="5">Split Airport</option>
+									 <option value="1">Split Downtown / Port</option>
+									 <option value="8">Zadar Airport</option>
+									 <option value="3">Zadar Downtown</option>
+									 <option value="10">Zagreb Airport</option>
+									 <option value="9">Zagreb Downtown - railway station</option>
+								</select>
+								<input value="" class="grid_2Home hasDatepicker" data-val="true" data-val-date="The field End Date must be a date." data-val-required="*" id="TimeIn" name="TimeIn" placeholder="- Date In -" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px" type="text"> 
+								<select class="grid_1" id="MinuteIn" name="MinuteIn" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
+									 <option value="0">00:00</option>
+									 <option value="1">00:30</option>
+									 <option value="2">01:00</option>
+									 <option value="3">01:30</option>
+									 <option value="4">02:00</option>
+									 <option value="5">02:30</option>
+									 <option value="6">03:00</option>
+									 <option value="7">03:30</option>
+									 <option value="8">04:00</option>
+									 <option value="9">04:30</option>
+									 <option value="10">05:00</option>
+									 <option value="11">05:30</option>
+									 <option value="12">06:00</option>
+									 <option value="13">06:30</option>
+									 <option value="14">07:00</option>
+									 <option value="15">07:30</option>
+									 <option value="16">08:00</option>
+									 <option value="17">08:30</option>
+									 <option value="18">09:00</option>
+									 <option value="19">09:30</option>
+									 <option value="20">10:00</option>
+									 <option value="21">10:30</option>
+									 <option value="22">11:00</option>
+									 <option value="23">11:30</option>
+									 <option selected="selected" value="24">12:00</option>
+									 <option value="25">12:30</option>
+									 <option value="26">13:00</option>
+									 <option value="27">13:30</option>
+									 <option value="28">14:00</option>
+									 <option value="29">14:30</option>
+									 <option value="30">15:00</option>
+									 <option value="31">15:30</option>
+									 <option value="32">16:00</option>
+									 <option value="33">16:30</option>
+									 <option value="34">17:00</option>
+									 <option value="35">17:30</option>
+									 <option value="36">18:00</option>
+									 <option value="37">18:30</option>
+									 <option value="38">19:00</option>
+									 <option value="39">19:30</option>
+									 <option value="40">20:00</option>
+									 <option value="41">20:30</option>
+									 <option value="42">21:00</option>
+									 <option value="43">21:30</option>
+									 <option value="44">22:00</option>
+									 <option value="45">22:30</option>
+									 <option value="46">23:00</option>
+									 <option value="47">23:30</option>
+								</select>
+								<span class="field-validation-valid" data-valmsg-for="OfficeIn" data-valmsg-replace="true" id="OfficeInValidarionError" style="color:red"></span>    
+								<span class="field-validation-valid" data-valmsg-for="TimeIn" data-valmsg-replace="true" id="TimeInValidarionError" style="color:red"></span> <br>
+								<div id="corporate" style="margin-left: 27px; height: 20px; display: none;">
+									 <input type="text" id="NoCorporate" name="NoCorporate" class="grid_2_rezcc" style="padding:5px; margin-top:15px; font-size: 17px" placeholder="name / number">                                                                   
+								</div>
+								<br>
+								<div style="width: 100%; height:5px"></div>
+								<div align="center"><input type="submit" class="btn_2" value="Rent now »" style="border: none; font: 700 21px/40px 'Marvel', sans-serif;width:250px; opacity:10"></div>
+						 </div>
+					</form>
+				</div>
+			
+				<div class="container">
+					<div class="row rowTitle">
+						<div class="col-sm-12">Every our car has</div>
 					</div>
-					<br>
-					<div style="width: 100%; height:5px"></div>
-					<div align="center"><input type="submit" class="btn_2" value="Rent now »" style="border: none; font: 700 21px/40px 'Marvel', sans-serif;width:250px; opacity:10"></div>
-			 </div>
-		</form>
-	</div>
-
-	<div class="container">
-		<div class="row rowTitle">
-			<div class="col-sm-12">Every our car has</div>
-		</div>
-		<div class="row rowText">
-			<div class="col-sm-4">
-					<i style="color: #f3b927" class="fa fa-location-arrow fa-3x" aria-hidden="true"></i>
-					<h3>GPS Navigation</h3>
-					<p style="font-size: 20px;">For better navigating around cities.</p>
-			</div>
-			<div class="col-sm-4">
-					<i style="color: #f3b927" class="fa fa-child fa-3x" aria-hidden="true"></i>
-					<h3>Child Seat</h3>
-					<p style="font-size: 20px;">Your child will be safer and you won't get in trouble with police.</p>
-			</div>
-			<div class="col-sm-4">
-					<i style="color: #f3b927" class="fa fa-check fa-3x" aria-hidden="true"></i>
-					<h3>Jos Nesto</h3>
-					<p style="font-size: 20px;">Jos nesto dobijete.</p>
-			</div>
-		</div>
+					<div class="row rowText">
+						<div class="col-sm-4">
+								<i style="color: #f3b927" class="fa fa-location-arrow fa-3x" aria-hidden="true"></i>
+								<h3>GPS Navigation</h3>
+								<p style="font-size: 20px;">For better navigating around cities.</p>
+						</div>
+						<div class="col-sm-4">
+								<i style="color: #f3b927" class="fa fa-child fa-3x" aria-hidden="true"></i>
+								<h3>Child Seat</h3>
+								<p style="font-size: 20px;">Your child will be safer and you won't get in trouble with police.</p>
+						</div>
+						<div class="col-sm-4">
+								<i style="color: #f3b927" class="fa fa-check fa-3x" aria-hidden="true"></i>
+								<h3>Jos Nesto</h3>
+								<p style="font-size: 20px;">Jos nesto dobijete.</p>
+						</div>
+					</div>
+				</div>
+			
 	</div>
 </div>
