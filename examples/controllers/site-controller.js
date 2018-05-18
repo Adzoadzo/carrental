@@ -1,4 +1,4 @@
-function SiteController($scope, $http){
+function SiteController($scope, $http, toastr){
     console.log("Hello from Site Controller");
 
     $scope.check_login = function(){
@@ -11,7 +11,7 @@ function SiteController($scope, $http){
     $scope.login = function(credentials){
         $http.post('/login', credentials).then(function(response){
             localStorage.setItem('user',response.data.token)
-            toastr.success('Hello world!', 'Toastr fun!');
+            toastr.success('Hi, you are successfully logged in!', 'Login Success!');
         }),function(error){
             console.log(error);
         }
@@ -19,5 +19,6 @@ function SiteController($scope, $http){
 
     $scope.logout = function(){
         localStorage.clear();
+        toastr.info("Successfully logged out!", "Logged Out!");
     }
 }

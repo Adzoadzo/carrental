@@ -8,8 +8,8 @@ var jwt = require('jsonwebtoken');
 var MongoId = require('mongodb').ObjectID;
 var database;
 
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
+//var bcrypt = require('bcrypt');
+//const saltRounds = 10;
 
 app.use('/', express.static('examples'));
 app.use(express.json()); // to support JSON-encoded bodies

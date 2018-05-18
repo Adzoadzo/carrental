@@ -39,9 +39,12 @@
 <script src="controllers/site-controller.js"></script>
 <script src="controllers/registration-controller.js"></script>
 <script src="controllers/cars-controller.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+<script src="//unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<link rel="stylesheet" href="//unpkg.com/angular-toastr/dist/angular-toastr.css" />
 
 <script>
-    var app = angular.module("carrental-app", ["ngRoute", "xeditable", "ui.bootstrap"]);
+    var app = angular.module("carrental-app", ["ngRoute", "xeditable", "ui.bootstrap", 'ngAnimate', 'toastr']);
 
     app.controller('siteController', SiteController);
     app.controller('registrationController', RegistrationController);
