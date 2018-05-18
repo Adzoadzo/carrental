@@ -237,6 +237,9 @@ p{
     margin-top: 30px;
     text-align: center;
 }
+.single{
+    background-color: #FFFFFF;
+}
 /*-- services --*/
 .services {
     background: url(../images/bg.jpg)no-repeat center fixed;
