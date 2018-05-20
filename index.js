@@ -114,6 +114,19 @@ app.get("/singleCar/:car_id", function(req, res) {
     });
 });
 
+app.get("/getSingle/:id", function(req, res){
+    database.collection('cars').findOne({
+        _id: new MongoId(req.params.id)
+    }, function(err, doc){
+        if(err){
+            handleError(res, err.message, "There is an error in finding a car");
+        } else {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(doc);
+        }
+    });
+});
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 

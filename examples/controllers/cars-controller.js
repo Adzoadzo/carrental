@@ -1,4 +1,4 @@
-function CarsController($scope, $http) {
+function CarsController($scope, $http, $routeParams) {
   console.log("Hello from Cars Controller");
 
   var config = {headers:  {
@@ -27,6 +27,12 @@ function CarsController($scope, $http) {
           console.log(data);
       });
   }
+
+  $scope.getSingle = function(id){
+      $http.get('/getSingle/' + id, config).then(function(data) {
+          console.log(data);
+      })
+  };
 
   init();
 }
