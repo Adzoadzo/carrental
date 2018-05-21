@@ -1,6 +1,6 @@
 function CarsController($scope, $http, $routeParams) {
   console.log("Hello from Cars Controller");
-  
+
   var config = {headers:  {
     'Authorization': 'Basic d2VudHdvcnRobWFuOkNoYW5nZV9tZQ==',
     'Accept': 'application/json;odata=verbose',

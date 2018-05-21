@@ -6,11 +6,20 @@
 								<!--<div class="imgNoCosts">
 									 <img src="/Images/nohidden.png" alt="No Hidden Cost" title="No Hidden Costs">
 								</div>-->
-								<p style=" font: 700 22px/10px 'Open Sans',sans-serif; margin-left: 20px; color: white">&nbsp;Reserve now,</p>
-								<p style=" font: 700 22px/10px 'Open Sans',sans-serif; margin-top: 7px ;margin-left: 60px; color: white">
-									 pay later !&nbsp;
-									 <!-- <i class="fa fa-check fontawesome" style="margin-top: -20px; font-size: 40px; color:#a9f114"></i> -->
-								</p>
+								<div class="row">
+									<div class="col-sm-6">
+										<p style=" font: 700 22px/10px 'Open Sans',sans-serif; margin-left: 20px; color: white">&nbsp;Reserve now,</p>
+										<p style=" font: 700 22px/10px 'Open Sans',sans-serif; margin-top: 7px ;margin-left: 60px; color: white">
+											 pay later !&nbsp;
+											 <!-- <i class="fa fa-check fontawesome" style="margin-top: -20px; font-size: 40px; color:#a9f114"></i> -->
+										</p>
+									</div>
+									<div class="col-sm-6">
+										<select class="grid_comboHome" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px" 
+										ng-controller="carsController" ng-model="selectedCar" ng-options="car.car_name for car in cars_list">
+									   </select>
+									</div>
+								</div>
 								<br>                                                                             
 								<select class="grid_comboHome" id="OfficeOut" name="OfficeOut" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px">
 									 <option value="">- Pick up Location -</option>
@@ -154,7 +163,7 @@
 								</div>
 								<br>
 								<div style="width: 100%; height:5px"></div>
-								<div align="center"><input type="submit" class="btn_2" value="Rent now »" style="border: none; font: 700 21px/40px 'Marvel', sans-serif;width:250px; opacity:10"></div>
+								<div align="center"><button type="submit" class="btn btn-warning" style="font-size: 15px;width:250px; opacity:10">Rent now »</button></div>
 						 </div>
 					</form>
 				</div>
