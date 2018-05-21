@@ -3,18 +3,21 @@
         <div class="row">
             <div style="text-align: center;" class="col-md-12"><img class="single-img" src="{{car_info.car_picture}}"></div>
         </div>
-        <div class="row">
+        <div class="row car-info">
             <div class="col-md-6">
-                Name : {{car_info.car_name}} <br>
-                Price : {{car_info.car_price}} <br>
-                Year : {{car_info.car_price}} <br>
-                Engine : {{car_info.car_engine}} <br>
-                Engine Power : {{car_info.car_power}} <br>
-                Transmission : {{car_info.car_transmission}} {{car_info.car_gears}} gears <br>
-                Doors : {{car_info.car_doors}}
+                <h3 style="font-weight: 500">{{car_info.car_name}}</h3> <br>
+                <h5>Price : {{car_info.car_price}} KM</h5> <br>
+                <h5>Year : {{car_info.car_year}}</h5> <br>
+                <h5>Engine : {{car_info.car_engine}}</h5> <br>
+                <h5>Engine Power : {{car_info.car_power}}</h5> <br>
+                <h5>Transmission : {{car_info.car_transmission}} {{car_info.car_gears}} gears </h5> <br>
+                <h5>Doors : {{car_info.car_doors}}</h5>
 
             </div>
-            <div class="col-md-6">EVO GA DRUGA</div>
+            <div style="margin-top: 10px;" class="col-md-6">
+                <h6 style="font-weight: 500;">Please Note</h6><br>
+                <p>Minimum Years: {{car_info.car_driver}}</p>
+            </div>
         </div>
     </div>
 </div>
