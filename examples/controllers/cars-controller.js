@@ -1,6 +1,6 @@
 function CarsController($scope, $http, $routeParams) {
   console.log("Hello from Cars Controller");
-
+  
   var config = {headers:  {
     'Authorization': 'Basic d2VudHdvcnRobWFuOkNoYW5nZV9tZQ==',
     'Accept': 'application/json;odata=verbose',
@@ -27,12 +27,6 @@ function CarsController($scope, $http, $routeParams) {
           console.log(data);
       });
   }
-
-  $scope.getSingle = function(id){
-      $http.get('/getSingle/' + id, config).then(function(data) {
-          console.log(data);
-      })
-  };
 
   init();
 }

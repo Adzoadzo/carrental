@@ -1,10 +1,19 @@
 <div class="single">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">SLIKA</div>
+            <div style="text-align: center;" class="col-md-12"><img class="single-img" src="{{car_info.car_picture}}"></div>
         </div>
         <div class="row">
-            <div class="col-md-6">EVO GA JEDNA</div>
+            <div class="col-md-6">
+                Name : {{car_info.car_name}} <br>
+                Price : {{car_info.car_price}} <br>
+                Year : {{car_info.car_price}} <br>
+                Engine : {{car_info.car_engine}} <br>
+                Engine Power : {{car_info.car_power}} <br>
+                Transmission : {{car_info.car_transmission}} {{car_info.car_gears}} gears <br>
+                Doors : {{car_info.car_doors}}
+
+            </div>
             <div class="col-md-6">EVO GA DRUGA</div>
         </div>
     </div>

@@ -21,4 +21,11 @@ function SiteController($scope, $http, toastr){
         localStorage.clear();
         toastr.info("Successfully logged out!", "Logged Out!");
     }
+
+    $scope.getSingle = function(id){
+        $http.get('/getSingle/' + id).then(function(res) {
+            $scope.car_info = res.data[0];
+            console.log($scope.car_info);
+        })
+    };
 }

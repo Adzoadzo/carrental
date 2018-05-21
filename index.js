@@ -115,15 +115,12 @@ app.get("/singleCar/:car_id", function(req, res) {
 });
 
 app.get("/getSingle/:id", function(req, res){
-    database.collection('cars').findOne({
+    database.collection('cars').find({
         _id: new MongoId(req.params.id)
-    }, function(err, doc){
-        if(err){
-            handleError(res, err.message, "There is an error in finding a car");
-        } else {
-            res.setHeader('Content-Type', 'application/json');
-            res.send(doc);
-        }
+    }).toArray((err, doc) => {
+        if(err) return console.log(err);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(doc);
     });
 });
 
