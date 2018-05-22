@@ -52,7 +52,6 @@ app.post('/login', function(req, res) {
                 var token = jwt.sign(user, jwt_secret, {
                     expiresIn: 20000
                 });
-
                 res.send({
                     success: true,
                     message: 'Authenticated',

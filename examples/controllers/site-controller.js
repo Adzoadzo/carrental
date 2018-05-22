@@ -1,4 +1,4 @@
-function SiteController($scope, $http, toastr){
+function SiteController($scope, $http, toastr, $location){
     console.log("Hello from Site Controller");
 
     $scope.check_login = function(){
@@ -12,6 +12,7 @@ function SiteController($scope, $http, toastr){
         $http.post('/login', credentials).then(function(response){
             localStorage.setItem('user',response.data.token)
             toastr.success('Hi, you are successfully logged in!', 'Login Success!');
+            $location.url('/');
         }),function(error){
             console.log(error);
         }
