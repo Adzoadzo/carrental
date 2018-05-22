@@ -1,4 +1,4 @@
-function DashboardController($scope, $http) {
+function DashboardController($scope, $http, toastr) {
     console.log("Hello from Dashboard Controller");
     refresh_cars();
 
@@ -8,6 +8,7 @@ function DashboardController($scope, $http) {
             //toastr.success("You are successfully registered! Please Login!", "Registration Successfull!");
             //$location.url('/login');
             $scope.cars_list.push(data);
+            toastr.success('Car added successfully!');
         });
     }
 
@@ -39,7 +40,8 @@ function DashboardController($scope, $http) {
     $scope.update_car = function(){
         $http.put('/car/'+$scope.car._id, $scope.car).then(function(data){
           refresh_cars();
-          console.log($scope.car);
+          //console.log($scope.car);
+          toastr.info('You have successfully updated car!');
           $scope.contact = null;
         });
       }
