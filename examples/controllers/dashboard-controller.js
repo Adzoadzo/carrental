@@ -19,4 +19,28 @@ function DashboardController($scope, $http) {
                 alert(res.status);
             }
     };
+
+    $scope.edit_car = function(car){
+        $scope.car ={
+          _id : car._id,
+          car_name : car.car_name,
+          car_price : car.car_price,
+          car_year : car.car_year,
+          car_engine : car.car_engine,
+          car_power : car.car_power,
+          car_transmission : car.car_transmission,
+          car_gears : car.car_gears,
+          car_doors : car.car_doors,
+          car_picture : car.car_picture,
+          car_min_years : car.car_min_years
+        };
+      }
+
+    $scope.update_car = function(){
+        $http.put('/car/'+$scope.car._id, $scope.car).then(function(data){
+          refresh_cars();
+          console.log($scope.car);
+          $scope.contact = null;
+        });
+      }
 }

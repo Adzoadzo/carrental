@@ -134,6 +134,24 @@ app.post('/addCar', function(req, res){
     })
 });
 
+ app.put('/car/:car_id', function(req, res){    
+     database.collection('cars').findAndModify(
+        {_id: new MongoId(req.params.car_id)}, // query
+        [['_id','asc']],  // sort order
+        {$set : {car_name: req.body.car_name, car_price: req.body.car_price, car_year: req.body.car_year, 
+            car_engine: req.body.car_engine, car_power: req.body.car_power,
+            car_transmission: req.body.car_transmission, car_gears: req.body.car_gears,
+            car_doors: req.body.car_doors, car_picture: req.body.car_picture,
+            car_min_years: req.body.car_min_years}}, // replacement, replaces only the field "hi"
+        function(err, doc) {
+            if (err){
+                console.warn(err.message);  // returns error if no matching object found
+            }else{
+                res.json(doc);
+            }
+        });
+ });
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 
