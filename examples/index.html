@@ -25,6 +25,7 @@
         <link href="//fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet"> 
          //web-fonts -->
         <link href="https://vitalets.github.io/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
     </head>
 
 <body>
@@ -40,6 +41,7 @@
 <script src="controllers/registration-controller.js"></script>
 <script src="controllers/cars-controller.js"></script>
 <script src="controllers/singlecar-controller.js"></script>
+<script src="controllers/dashboard-controller.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
 <script src="//unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
 <link rel="stylesheet" href="//unpkg.com/angular-toastr/dist/angular-toastr.css" />
@@ -51,6 +53,7 @@
     app.controller('registrationController', RegistrationController);
     app.controller('carsController', CarsController);
     app.controller('singlecarController', SingleCarController);
+    app.controller('dashboardController', DashboardController);
 
     app.config(function($routeProvider) {
         $routeProvider
@@ -77,6 +80,10 @@
         .when("/car/:id", {
             templateUrl: "views/singleCar.html",
             controller : "siteController"
+        })
+        .when("/dashboard", {
+            templateUrl : "views/dashboard.html",
+            controller : "dashboardController"
         })
     });
 </script>

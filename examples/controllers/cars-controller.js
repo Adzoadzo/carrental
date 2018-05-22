@@ -24,7 +24,6 @@ function CarsController($scope, $http, $routeParams) {
   $scope.get_carById = function(car_id) {
       console.log("get car with id " + car_id);
       $http.get('/singleCar/' + car_id, config).then(function(data) {
-          console.log(data);
       });
   }
 

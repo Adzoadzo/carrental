@@ -58,7 +58,8 @@ app.post('/login', function(req, res) {
                     token: token
                 })
                 console.log("Authentication passed.");
-            } else {
+            }
+            else {
                 res.status(401).send('Credentials are wrong.');
             }
         }
@@ -121,6 +122,16 @@ app.get("/getSingle/:id", function(req, res){
         res.setHeader('Content-Type', 'application/json');
         res.send(doc);
     });
+});
+
+app.post('/addCar', function(req, res){
+    req.body._id = null;
+    var car = req.body;
+    database.collection('cars').insert(car, function(err, data){
+        if(err) return console.log(err);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(car);
+    })
 });
 
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {

@@ -188,6 +188,10 @@ p{
 .main-panel{
     height: 100%;
 }
+.dashboard{
+    background-color: #FFFFFF;
+    padding: 50px;
+}
 /*-- login-form --*/
 .form-signin {
     text-align: center!important;
@@ -239,6 +243,9 @@ p{
 }
 .single{
     background-color: #FFFFFF;
+}
+.singleImage{
+    height: 400px;
 }
 /*-- services --*/
 .services {
