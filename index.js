@@ -159,6 +159,24 @@ app.post('/addCar', function(req, res){
      });
  });
 
+ app.post('/addEmployee', function(req, res){
+    req.body._id = null;
+    var employee = req.body;
+    database.collection('employees').insert(employee, function(err, data){
+        if(err) return console.log(err);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(employee);
+    })
+});
+
+app.get('/getEmployee', function(request, response) {
+    database.collection('employees').find().toArray((err, employee) => {
+        if (err) return console.log(err);
+        response.setHeader('Content-Type', 'application/json');
+        response.send(employee);
+    })
+});
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 

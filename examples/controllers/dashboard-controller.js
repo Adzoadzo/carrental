@@ -1,6 +1,7 @@
 function DashboardController($scope, $http, toastr) {
     console.log("Hello from Dashboard Controller");
     refresh_cars();
+    refresh_employees();
 
     $scope.add_car = function() {
         $http.post('/addCar', $scope.car).then(function(data) {
@@ -9,7 +10,26 @@ function DashboardController($scope, $http, toastr) {
             //$location.url('/login');
             $scope.cars_list.push(data);
             toastr.success('Car added successfully!');
+            refresh_cars();
         });
+    }
+
+    $scope.add_employee = function() {
+        $http.post('/addEmployee', $scope.employee).then(function(data) {
+            $scope.employee = null;
+            $scope.employee_list.push(data);
+            toastr.success('Employee added successfully!');
+            refresh_employees();
+        });
+    }
+
+    function refresh_employees(){
+        $http.get('/getEmployee').then(function(res){
+            $scope.employee_list = res.data;
+        }),
+        function(res){
+            alert(res.status);
+        }
     }
 
     function refresh_cars() {
@@ -57,7 +77,7 @@ function DashboardController($scope, $http, toastr) {
           refresh_cars();
           //console.log($scope.car);
           toastr.info('You have successfully updated car!');
-          $scope.contact = null;
+          $scope.car = null;
         });
       }
 

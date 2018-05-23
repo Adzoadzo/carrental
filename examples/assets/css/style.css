@@ -192,6 +192,12 @@ p{
     background-color: #FFFFFF;
     padding: 50px;
 }
+.btn-manji{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
 /*-- login-form --*/
 .form-signin {
     text-align: center!important;
