@@ -52,6 +52,7 @@
                       <div class="btn-group">
                       <button class="btn btn-primary" ng-click="add_car()">Add</button>
                       <button class="btn btn-success" ng-click="update_car()">Update</button>
+                      <button class="btn btn-info" ng-click="clear(car)">Clear All</button>
                         </div>
                     </td>
                   </tr>
@@ -69,7 +70,7 @@
                     <td>
                       <div class="btn-group">
                         <button class="btn btn-warning" ng-click="edit_car(car)">Edit</button>
-                        <button class="btn btn-danger" ng-click="delete_contact(contact._id)">Delete</button>
+                        <button class="btn btn-danger" ng-click="delete_car(car._id, car.car_name)">Delete</button>
                       </div>
                     </td>
                   </tr>

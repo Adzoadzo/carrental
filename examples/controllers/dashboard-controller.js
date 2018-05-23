@@ -35,7 +35,22 @@ function DashboardController($scope, $http, toastr) {
           car_picture : car.car_picture,
           car_min_years : car.car_min_years
         };
-      }
+    }
+
+    $scope.clear = function(car){
+        $scope.car = {
+            car_name : '',
+            car_price : '',
+            car_year : '',
+            car_engine : '',
+            car_power : '',
+            car_transmission : '',
+            car_gears : '',
+            car_doors : '',
+            car_picture : '',
+            car_min_years : ''
+        };
+    }
 
     $scope.update_car = function(){
         $http.put('/car/'+$scope.car._id, $scope.car).then(function(data){
@@ -45,4 +60,11 @@ function DashboardController($scope, $http, toastr) {
           $scope.contact = null;
         });
       }
+
+    $scope.delete_car = function(car_id, car_name){
+        $http.delete('/car/'+ car_id).then(function(data){
+            refresh_cars();
+            toastr.success(car_name + ' deleted');
+        });
+    }
 }

@@ -152,6 +152,13 @@ app.post('/addCar', function(req, res){
         });
  });
 
+ app.delete('/car/:car_id', function(req, res){
+     database.collection('cars').remove({_id: new MongoId(req.params.car_id)},
+     function(err, data){
+         res.json(data);
+     });
+ });
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 
