@@ -2,6 +2,7 @@ function DashboardController($scope, $http, toastr) {
     console.log("Hello from Dashboard Controller");
     refresh_cars();
     refresh_employees();
+    refresh_users();
 
     $scope.add_car = function() {
         $http.post('/addCar', $scope.car).then(function(data) {
@@ -41,6 +42,15 @@ function DashboardController($scope, $http, toastr) {
             }
     };
 
+    function refresh_users(){
+        $http.get('/getUser').then(function(res){
+            $scope.users_list = res.data;
+        }),
+        function(res){
+            alert(res.status);
+        }
+    };
+
     $scope.edit_car = function(car){
         $scope.car ={
           _id : car._id,
@@ -54,6 +64,15 @@ function DashboardController($scope, $http, toastr) {
           car_doors : car.car_doors,
           car_picture : car.car_picture,
           car_min_years : car.car_min_years
+        };
+    }
+
+    $scope.edit_emp = function(employee){
+        $scope.employee ={
+            _id : employee._id,
+            employee_name : employee.employee_name,
+            employee_salary : employee.employee_salary,
+            employee_country : employee.employee_country
         };
     }
 
@@ -87,4 +106,22 @@ function DashboardController($scope, $http, toastr) {
             toastr.success(car_name + ' deleted');
         });
     }
+
+    $scope.update_employee = function(){
+        $http.put('/employee/'+$scope.employee._id, $scope.employee).then(function(data){
+          refresh_employees();
+          //console.log($scope.car);
+          toastr.info('You have successfully updated employee!');
+          $scope.employee = null;
+        });
+      }
+
+    $scope.delete_employee = function(employee_id, employee_name){
+        $http.delete('/employee/'+ employee_id).then(function(data){
+            refresh_employees();
+            toastr.success(employee_name + ' deleted');
+        });
+    }
+
+    $scope.date = new Date();
 }

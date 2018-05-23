@@ -6,7 +6,7 @@ function RegistrationController($scope, $http, toastr, $location){
           $scope.user = null;
           toastr.success("You are successfully registered! Please Login!", "Registration Successfull!");
           $location.url('/login');
-          //$scope.user_list.push(data);
+          $scope.users_list.push(data);
         });
       }
 }

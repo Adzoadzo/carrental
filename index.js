@@ -177,6 +177,35 @@ app.get('/getEmployee', function(request, response) {
     })
 });
 
+app.put('/employee/:employee_id', function(req, res){    
+    database.collection('employees').findAndModify(
+       {_id: new MongoId(req.params.employee_id)}, // query
+       [['_id','asc']],  // sort order
+       {$set : {employee_name: req.body.employee_name, employee_salary: req.body.employee_salary, employee_country: req.body.employee_country}}, // replacement, replaces only the field "hi"
+       function(err, doc) {
+           if (err){
+               console.warn(err.message);  // returns error if no matching object found
+           }else{
+               res.json(doc);
+           }
+       });
+});
+
+app.delete('/employee/:employee_id', function(req, res){
+    database.collection('employees').remove({_id: new MongoId(req.params.employee_id)},
+    function(err, data){
+        res.json(data);
+    });
+});
+
+app.get('/getUser', function(req, res){
+    database.collection('users').find().toArray((err, user) => {
+        if(err) return console.log(err);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(user);
+    })
+});
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 

@@ -102,8 +102,7 @@
                        <td>
                           <div class="btn-group">
                              <button class="btn btn-primary btn-manji" ng-click="add_employee()">Add</button>
-                             <button class="btn btn-success btn-manji" ng-click="update_car()">Update</button>
-                             <button class="btn btn-info btn-manji" ng-click="clear(car)">Clear</button>
+                             <button class="btn btn-success btn-manji" ng-click="update_employee()">Update</button>
                           </div>
                        </td>
                     </tr>
@@ -112,7 +111,7 @@
               <div class="card" style="height: auto;">
                  <div class="card-header card-header-warning">
                     <h4 class="card-title">Employees Stats</h4>
-                    <p class="card-category">New employees on 15th September, 2016</p>
+                    <p class="card-category">New employees on {{date | date:'d MMMM, yyyy'}}</p>
                  </div>
                  <div class="card-body table-responsive">
                     <table class="table table-hover">
@@ -129,8 +128,8 @@
                              <td>{{employee.employee_country}}</td>
                              <td>
                                 <div class="btn-group">
-                                   <button class="btn btn-warning" ng-click="edit_car(car)">Edit</button>
-                                   <button class="btn btn-danger" ng-click="delete_car(car._id, car.car_name)">Delete</button>
+                                   <button class="btn btn-warning" ng-click="edit_emp(employee)">Edit</button>
+                                   <button class="btn btn-danger" ng-click="delete_employee(employee._id, employee.employee_name)">Delete</button>
                                 </div>
                              </td>
                           </tr>
@@ -143,27 +142,27 @@
            <div class="col-lg-6 col-md-12">
                 <div class="card" style="height: auto;">
                         <div class="card-header card-header-warning">
-                           <h4 class="card-title">Employees Stats</h4>
-                           <p class="card-category">New employees on 15th September, 2016</p>
+                           <h4 class="card-title">User Stats</h4>
+                           <p class="card-category">New users on {{date | date:'d MMMM, yyyy'}}</p>
                         </div>
                         <div class="card-body table-responsive">
                            <table class="table table-hover">
                               <thead class="text-warning">
                                  <th>Name</th>
-                                 <th>Salary</th>
-                                 <th>Country</th>
+                                 <th>Surname</th>
+                                 <th>Address</th>
+                                 <th>Email</th>
+                                 <th>Phone</th>
                                  </tr>
                               </thead>
                               <tbody>
-                                 <tr ng-repeat="employee in employee_list">
-                                    <td>{{employee.employee_name}}</td>
-                                    <td>{{employee.employee_salary}} KM</td>
-                                    <td>{{employee.employee_country}}</td>
+                                 <tr ng-repeat="user in users_list">
+                                    <td>{{user.firstName}}</td>
+                                    <td>{{user.lastName}}</td>
+                                    <td>{{user.address}}</td>
+                                    <td>{{user.email}}</td>
+                                    <td>{{user.phone}}</td>
                                     <td>
-                                       <div class="btn-group">
-                                          <button class="btn btn-warning" ng-click="edit_car(car)">Edit</button>
-                                          <button class="btn btn-danger" ng-click="delete_car(car._id, car.car_name)">Delete</button>
-                                       </div>
                                     </td>
                                  </tr>
                               </tbody>
