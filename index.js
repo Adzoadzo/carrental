@@ -206,6 +206,15 @@ app.get('/getUser', function(req, res){
     })
 });
 
+app.get('/getEmpExpenses', function(req, res){
+    database.collection('employees').aggregate([
+        {"$group" : {"_id" : null, "total": {"$sum": '$employee_salary'}}}
+    ], function(err, docs){
+        if(err) return console.log(err);
+        res.send(docs);
+    });
+});
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 

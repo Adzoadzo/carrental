@@ -27,6 +27,7 @@ function DashboardController($scope, $http, toastr) {
     function refresh_employees(){
         $http.get('/getEmployee').then(function(res){
             $scope.employee_list = res.data;
+            get_expenses();
         }),
         function(res){
             alert(res.status);
@@ -122,6 +123,14 @@ function DashboardController($scope, $http, toastr) {
             toastr.success(employee_name + ' deleted');
         });
     }
+
+    function get_expenses(){
+        $http.get('/getEmpExpenses').then(function(res){
+          $scope.expenses = res.data[0];
+        }),function(response){
+          alert(response.status);
+        }
+      };
 
     $scope.date = new Date();
 }
