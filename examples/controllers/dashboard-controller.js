@@ -3,6 +3,7 @@ function DashboardController($scope, $http, toastr) {
     refresh_cars();
     refresh_employees();
     refresh_users();
+    get_orders();
 
     $scope.add_car = function() {
         $http.post('/addCar', $scope.car).then(function(data) {
@@ -131,6 +132,22 @@ function DashboardController($scope, $http, toastr) {
           alert(response.status);
         }
       };
+
+    function get_orders(){
+        $http.get('/getOrders').then(function(res){
+            $scope.orders_list = res.data;
+            get_incomes();
+        }),
+        function(res){
+            alert(res.status);
+        }
+    };
+
+    function get_incomes(){
+        $http.get('/getRentIncomes').then(function(res){
+            $scope.incomes = res.data[0];
+        });
+    }
 
     $scope.date = new Date();
 }

@@ -235,6 +235,23 @@ app.post('/makeOrder/:car_name/:car_price/:pickup_location/:pickup_date/:pickup_
     })
 });
 
+app.get('/getOrders', function(req, res){
+    database.collection('orders').find().toArray((err, order) => {
+        if(err) return console.log(err);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(order);
+    })
+});
+
+app.get('/getRentIncomes', function(req, res){
+    database.collection('orders').aggregate([
+        {"$group" : {"_id" : null, "total": {"$sum": '$car_price'}}}
+    ], function(err, docs){
+        if(err) return console.log(err);
+        res.send(docs);
+    });
+});
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 

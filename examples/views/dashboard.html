@@ -146,7 +146,8 @@
                                      </td>
                                   </tr>
                                   <tr>
-                                     <td colspan="3">Total Employee Expenses: {{expenses.total}} KM </td>
+                                     <td colspan="2">Total Employee Expenses:</td>
+                                     <td style="color: blue; font-weight:800">{{expenses.total}} KM</td>
                                   </tr>
                                </tbody>
                             </table>
@@ -183,3 +184,48 @@
                       </div>
                    </div>
                 </div>
+
+                <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                           <table class="table table-hover">
+                              <thead>
+                                 <tr>
+                                    <th>Order ID</th>
+                                    <th>Car Name</th>
+                                    <th>Car Price</th>
+                                    <th>Pickup Location</th>
+                                    <th>Pickup Date</th>
+                                    <th>Pickup Time</th>
+                                    <th>Return Location</th>
+                                    <th>Return Date</th>
+                                    <th>Return Time</th>
+                                    <th>User</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr ng-repeat="order in orders_list">
+                                    <td>{{order._id}}</td>
+                                    <td>{{order.car_name}}</td>
+                                    <td>{{order.car_price}}</td>
+                                    <td>{{order.pickup_location}}</td>
+                                    <td>{{order.pickup_date}}</td>
+                                    <td>{{order.pickup_time}}</td>
+                                    <td>{{order.return_location}}</td>
+                                    <td>{{order.return_date}}</td>
+                                    <td>{{order.return_time}}</td>
+                                    <td>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                     <td>Rent Incomes: </td>
+                                    <td></td>
+                                    <td style="color: blue; font-weight: 800">{{incomes.total}} KM</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+
+                
+
+                

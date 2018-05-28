@@ -21,4 +21,13 @@ function OrdersController($scope, $http, $routeParams){
             console.log(data);
         });
     }
+
+    function get_orders(){
+        $http.get('getOrders').then(function(res){
+            $scope.orders_list = res.data;
+        }),
+        function(res){
+            alert(res.status);
+        }
+    };
 }
