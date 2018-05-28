@@ -15,7 +15,7 @@
 						  </p>
 					   </div>
 					   <div class="col-sm-6">
-						  <select class="grid_comboHome" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px" 
+						  <select style="width:auto;" class="grid_comboHome form-control" style="line-height: 19px; font-size: 14px; font-family: 'Open Sans', sans-serif;font-weight: 400;padding: 6px 10px 6px" 
 							 ng-options="car.car_name for car in cars_list" ng-model="selectedCar">
 						  </select>
 					   </div>
@@ -88,7 +88,7 @@
 					<br>
 					<div style="width: 100%; height:5px"></div>
 					<div align="center"><a ng-href="#!/order/{{selectedCar.car_name}}/{{selectedCar.car_price}}/{{pickup_location}}
-					   /{{pickup_time}}/{{return_location}}/{{return_time}}"><button class="btn btn-warning" style="font-size: 15px;width:250px; opacity:10">Rent now »</button></a></div>
+					   /{{pickup_date}}/{{pickup_time}}/{{return_location}}/{{return_date}}/{{return_time}}"><button class="btn btn-warning" style="font-size: 15px;width:250px; opacity:10">Rent now »</button></a></div>
 				 </div>
 			  </form>
 		   </div>
