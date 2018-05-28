@@ -1,4 +1,4 @@
-function OrdersController($scope, $http, $routeParams){
+function OrdersController($scope, $http, $routeParams, $location, toastr){
     console.log('Hello from orders controller');
     get_params();
 
@@ -18,7 +18,9 @@ function OrdersController($scope, $http, $routeParams){
     $scope.make_order = function(car_name, car_price, pickup_location, pickup_date, pickup_time, return_location, return_date, return_time){
         $http.post('/makeOrder/' + car_name + '/' + car_price + '/' + pickup_location + '/' + pickup_date
         + '/' + pickup_time + '/' + return_location + '/' + return_date + '/' + return_time).then(function(data) {
-            console.log(data);
+            //console.log(data);
+            toastr.success('You have successfully rented ' + car_name);
+            $location.url('/');
         });
     }
 }
