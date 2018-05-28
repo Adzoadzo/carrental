@@ -215,18 +215,24 @@ app.get('/getEmpExpenses', function(req, res){
     });
 });
 
-app.post('/getOrderInfo/:car_name/:car_price/:pickup_location/:pickup_time/:return_location/:return_time', function(req, res){
+app.post('/makeOrder/:car_name/:car_price/:pickup_location/:pickup_date/:pickup_time/:return_location/:return_date/:return_time', function(req, res){
+    req.body._id = null;
+
     var car_name = req.params.car_name;
-    var car_price = req.params.car_price;
+    var car_price = parseInt(req.params.car_price);
     var pickup_location = req.params.pickup_location;
+    var pickup_date = req.params.pickup_date;
     var pickup_time = req.params.pickup_time;
     var return_location = req.params.return_location;
+    var return_date = req.params.return_date;
     var return_time = req.params.return_time;
+    var order={car_name, car_price, pickup_location, pickup_date, pickup_time, return_location, return_date, return_time};
 
-    var data = [car_name, car_price, pickup_location, pickup_time, return_location, return_time];
-
-    response.setHeader('Content-Type', 'application/json');
-    response.send(data);
+    database.collection('orders').insert(order, function(err, data) {
+        if (err) return console.log(err);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(order);
+    })
 });
 
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
