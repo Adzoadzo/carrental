@@ -215,6 +215,20 @@ app.get('/getEmpExpenses', function(req, res){
     });
 });
 
+app.post('/getOrderInfo/:car_name/:car_price/:pickup_location/:pickup_time/:return_location/:return_time', function(req, res){
+    var car_name = req.params.car_name;
+    var car_price = req.params.car_price;
+    var pickup_location = req.params.pickup_location;
+    var pickup_time = req.params.pickup_time;
+    var return_location = req.params.return_location;
+    var return_time = req.params.return_time;
+
+    var data = [car_name, car_price, pickup_location, pickup_time, return_location, return_time];
+
+    response.setHeader('Content-Type', 'application/json');
+    response.send(data);
+});
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 
