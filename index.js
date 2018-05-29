@@ -3,6 +3,7 @@ const bodyparser = require("body-parser");
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const jwt_secret = 'WU5CjF8fHxG40S2t7oyk';
+const jwt_admin = 'SJwt25Wq62SFfjiw92sR';
 
 var jwt = require('jsonwebtoken');
 var MongoId = require('mongodb').ObjectID;
@@ -17,27 +18,46 @@ app.use(express.urlencoded({
     extended: true
 })); // to support URL-encoded bodies
 
-app.use('/carrental/', function(req, res, next) {
-    jwt.verify(req.get('JWT'), jwt_secret, function(error, decoded) {
-        if (error) {
-            res.status(401).send('Unauthorized access');
-        } else {
-            database.collection('users').findOne({
-                '_id': new MongoId(decoded._id)
-            }, function(error, user) {
-                if (error) {
-                    throw error;
-                } else {
-                    if (user) {
-                        next();
-                    } else {
-                        res.status(401).send('Credentials are wrong.');
-                    }
-                }
-            });
+app.use('/carrental/',function(request,response,next){
+  jwt.verify(request.get('JWT'), jwt_secret, function(error, decoded) {      
+    if (error) {
+      response.status(401).send('Unauthorized access');    
+    } else {
+      database.collection("users").findOne({'_id': new MongoId(decoded._id)}, function(error, user) {
+        if (error){
+          throw error;
+        }else{
+          if(user){
+            next();
+          }else{
+            response.status(401).send('Credentials are wrong.');
+          }
         }
-    });
+      });
+    }
+  });  
 })
+
+app.use('/admin/',function(request,response,next){
+    jwt.verify(request.get('JWT'), jwt_admin, function(error, decoded) {      
+      if (error) {
+        response.status(401).send('Unauthorized access'); 
+        console.log(error);   
+      } else {
+        database.collection("users").findOne({'_id': new MongoId(decoded._id)}, function(error, user) {
+          if (error){
+            throw error;
+          }else{
+            if(user){
+              next();
+            }else{
+              response.status(401).send('Credentials are wrong.');
+            }
+          }
+        });
+      }
+    });  
+  })
 
 app.post('/login', function(req, res) {
     var user = req.body;
@@ -48,7 +68,18 @@ app.post('/login', function(req, res) {
         if (error) {
             throw error;
         } else {
-            if (user) {
+            if(user.type == "admin" && user){
+                var token = jwt.sign(user, jwt_admin, {
+                    expiresIn: 20000
+                });
+                res.send({
+                    success: true,
+                    message: 'Admin Authenticated',
+                    token: token
+                })
+                console.log("Authentication passed.");
+            }
+            else if (user) {
                 var token = jwt.sign(user, jwt_secret, {
                     expiresIn: 20000
                 });
@@ -124,7 +155,7 @@ app.get("/getSingle/:id", function(req, res){
     });
 });
 
-app.post('/addCar', function(req, res){
+app.post('/admin/addCar', function(req, res){
     req.body._id = null;
     var car = req.body;
     database.collection('cars').insert(car, function(err, data){
@@ -134,7 +165,7 @@ app.post('/addCar', function(req, res){
     })
 });
 
- app.put('/car/:car_id', function(req, res){    
+ app.put('/admin/car/:car_id', function(req, res){    
      database.collection('cars').findAndModify(
         {_id: new MongoId(req.params.car_id)}, // query
         [['_id','asc']],  // sort order
@@ -152,14 +183,14 @@ app.post('/addCar', function(req, res){
         });
  });
 
- app.delete('/car/:car_id', function(req, res){
+ app.delete('/admin/car/:car_id', function(req, res){
      database.collection('cars').remove({_id: new MongoId(req.params.car_id)},
      function(err, data){
          res.json(data);
      });
  });
 
- app.post('/addEmployee', function(req, res){
+ app.post('/admin/addEmployee', function(req, res){
     req.body._id = null;
     var employee = req.body;
     database.collection('employees').insert(employee, function(err, data){
@@ -169,7 +200,7 @@ app.post('/addCar', function(req, res){
     })
 });
 
-app.get('/getEmployee', function(request, response) {
+app.get('/admin/getEmployee', function(request, response) {
     database.collection('employees').find().toArray((err, employee) => {
         if (err) return console.log(err);
         response.setHeader('Content-Type', 'application/json');
@@ -177,7 +208,7 @@ app.get('/getEmployee', function(request, response) {
     })
 });
 
-app.put('/employee/:employee_id', function(req, res){    
+app.put('/admin/employee/:employee_id', function(req, res){    
     database.collection('employees').findAndModify(
        {_id: new MongoId(req.params.employee_id)}, // query
        [['_id','asc']],  // sort order
@@ -191,14 +222,14 @@ app.put('/employee/:employee_id', function(req, res){
        });
 });
 
-app.delete('/employee/:employee_id', function(req, res){
+app.delete('/admin/employee/:employee_id', function(req, res){
     database.collection('employees').remove({_id: new MongoId(req.params.employee_id)},
     function(err, data){
         res.json(data);
     });
 });
 
-app.get('/getUser', function(req, res){
+app.get('/admin/getUser', function(req, res){
     database.collection('users').find().toArray((err, user) => {
         if(err) return console.log(err);
         res.setHeader('Content-Type', 'application/json');
@@ -206,7 +237,7 @@ app.get('/getUser', function(req, res){
     })
 });
 
-app.get('/getEmpExpenses', function(req, res){
+app.get('/admin/getEmpExpenses', function(req, res){
     database.collection('employees').aggregate([
         {"$group" : {"_id" : null, "total": {"$sum": '$employee_salary'}}}
     ], function(err, docs){
@@ -215,7 +246,7 @@ app.get('/getEmpExpenses', function(req, res){
     });
 });
 
-app.post('/makeOrder/:car_name/:car_price/:pickup_location/:pickup_date/:pickup_time/:return_location/:return_date/:return_time', function(req, res){
+app.post('/carrental/makeOrder/:car_name/:car_price/:pickup_location/:pickup_date/:pickup_time/:return_location/:return_date/:return_time', function(req, res){
     req.body._id = null;
 
     var car_name = req.params.car_name;
@@ -235,7 +266,7 @@ app.post('/makeOrder/:car_name/:car_price/:pickup_location/:pickup_date/:pickup_
     })
 });
 
-app.get('/getOrders', function(req, res){
+app.get('/admin/getOrders', function(req, res){
     database.collection('orders').find().toArray((err, order) => {
         if(err) return console.log(err);
         res.setHeader('Content-Type', 'application/json');
@@ -243,7 +274,7 @@ app.get('/getOrders', function(req, res){
     })
 });
 
-app.get('/getRentIncomes', function(req, res){
+app.get('/admin/getRentIncomes', function(req, res){
     database.collection('orders').aggregate([
         {"$group" : {"_id" : null, "total": {"$sum": '$car_price'}}}
     ], function(err, docs){

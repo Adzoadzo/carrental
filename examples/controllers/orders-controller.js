@@ -2,6 +2,13 @@ function OrdersController($scope, $http, $routeParams, $location, toastr){
     console.log('Hello from orders controller');
     get_params();
 
+    var config = {headers:  {
+        'Authorization': 'Basic d2VudHdvcnRobWFuOkNoYW5nZV9tZQ==',
+        'Accept': 'application/json;odata=verbose',
+        "JWT" : localStorage.getItem('user')
+        }
+      };
+
     $scope.parseInt = parseInt;
 
     function get_params(){
@@ -16,10 +23,10 @@ function OrdersController($scope, $http, $routeParams, $location, toastr){
     }
 
     $scope.make_order = function(car_name, car_price, pickup_location, pickup_date, pickup_time, return_location, return_date, return_time){
-        $http.post('/makeOrder/' + car_name + '/' + car_price + '/' + pickup_location + '/' + pickup_date
-        + '/' + pickup_time + '/' + return_location + '/' + return_date + '/' + return_time).then(function(data) {
+        $http.post('/carrental/makeOrder/' + car_name + '/' + car_price + '/' + pickup_location + '/' + pickup_date
+        + '/' + pickup_time + '/' + return_location + '/' + return_date + '/' + return_time, config).then(function(data) {
             //console.log(data);
-            toastr.success('You have successfully rented ' + car_name);
+            toastr.success('You have successfully rented ' + car_name, config);
             $location.url('/');
         });
     }

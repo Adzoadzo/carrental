@@ -1,12 +1,19 @@
 function DashboardController($scope, $http, toastr) {
     console.log("Hello from Dashboard Controller");
+    var config = {headers:  {
+        'Authorization': 'Basic TmljayBDZXJtaW5hcmE6cGFzc3dvcmQ=',
+        'Accept': 'application/json;odata=verbose',
+        "JWT" : localStorage.getItem('user')
+        }
+      };
+
     refresh_cars();
     refresh_employees();
     refresh_users();
     get_orders();
 
     $scope.add_car = function() {
-        $http.post('/addCar', $scope.car).then(function(data) {
+        $http.post('/admin/addCar', $scope.car, config).then(function(data) {
             $scope.car = null;
             //toastr.success("You are successfully registered! Please Login!", "Registration Successfull!");
             //$location.url('/login');
@@ -17,7 +24,7 @@ function DashboardController($scope, $http, toastr) {
     }
 
     $scope.add_employee = function() {
-        $http.post('/addEmployee', $scope.employee).then(function(data) {
+        $http.post('/admin/addEmployee', $scope.employee, config).then(function(data) {
             $scope.employee = null;
             $scope.employee_list.push(data);
             toastr.success('Employee added successfully!');
@@ -26,7 +33,7 @@ function DashboardController($scope, $http, toastr) {
     }
 
     function refresh_employees(){
-        $http.get('/getEmployee').then(function(res){
+        $http.get('/admin/getEmployee', config).then(function(res){
             $scope.employee_list = res.data;
             get_expenses();
         }),
@@ -45,7 +52,7 @@ function DashboardController($scope, $http, toastr) {
     };
 
     function refresh_users(){
-        $http.get('/getUser').then(function(res){
+        $http.get('/admin/getUser', config).then(function(res){
             $scope.users_list = res.data;
         }),
         function(res){
@@ -94,7 +101,7 @@ function DashboardController($scope, $http, toastr) {
     }
 
     $scope.update_car = function(){
-        $http.put('/car/'+$scope.car._id, $scope.car).then(function(data){
+        $http.put('/admin/car/'+$scope.car._id, $scope.car, config).then(function(data){
           refresh_cars();
           //console.log($scope.car);
           toastr.info('You have successfully updated car!');
@@ -103,14 +110,14 @@ function DashboardController($scope, $http, toastr) {
       }
 
     $scope.delete_car = function(car_id, car_name){
-        $http.delete('/car/'+ car_id).then(function(data){
+        $http.delete('/admin/car/'+ car_id, config).then(function(data){
             refresh_cars();
             toastr.success(car_name + ' deleted');
         });
     }
 
     $scope.update_employee = function(){
-        $http.put('/employee/'+$scope.employee._id, $scope.employee).then(function(data){
+        $http.put('/admin/employee/'+$scope.employee._id, $scope.employee, config).then(function(data){
           refresh_employees();
           //console.log($scope.car);
           toastr.info('You have successfully updated employee!');
@@ -119,14 +126,14 @@ function DashboardController($scope, $http, toastr) {
       }
 
     $scope.delete_employee = function(employee_id, employee_name){
-        $http.delete('/employee/'+ employee_id).then(function(data){
+        $http.delete('/admin/employee/'+ employee_id, config).then(function(data){
             refresh_employees();
             toastr.success(employee_name + ' deleted');
         });
     }
 
     function get_expenses(){
-        $http.get('/getEmpExpenses').then(function(res){
+        $http.get('/admin/getEmpExpenses', config).then(function(res){
           $scope.expenses = res.data[0];
         }),function(response){
           alert(response.status);
@@ -134,7 +141,7 @@ function DashboardController($scope, $http, toastr) {
       };
 
     function get_orders(){
-        $http.get('/getOrders').then(function(res){
+        $http.get('/admin/getOrders', config).then(function(res){
             $scope.orders_list = res.data;
             get_incomes();
         }),
@@ -144,7 +151,7 @@ function DashboardController($scope, $http, toastr) {
     };
 
     function get_incomes(){
-        $http.get('/getRentIncomes').then(function(res){
+        $http.get('/admin/getRentIncomes', config).then(function(res){
             $scope.incomes = res.data[0];
         });
     }

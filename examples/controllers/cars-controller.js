@@ -2,7 +2,7 @@ function CarsController($scope, $http, $routeParams) {
   console.log("Hello from Cars Controller");
 
   var config = {headers:  {
-    'Authorization': 'Basic d2VudHdvcnRobWFuOkNoYW5nZV9tZQ==',
+    'Authorization': 'Basic TmljayBDZXJtaW5hcmE6cGFzc3dvcmQ=',
     'Accept': 'application/json;odata=verbose',
     "JWT" : localStorage.getItem('user')
     }
@@ -13,7 +13,7 @@ function CarsController($scope, $http, $routeParams) {
   }
 
   var get_cars = function() {
-      $http.get('/getCar', config).then(function(res) {
+      $http.get('/getCar').then(function(res) {
               $scope.cars_list = res.data;
           }),
           function(res) {
