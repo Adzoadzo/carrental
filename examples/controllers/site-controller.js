@@ -8,9 +8,17 @@ function SiteController($scope, $http, toastr, $location){
         return false;
     }
 
+    $scope.check_admin = function(){
+        if(localStorage.getItem('type') == "admin"){
+            return true;
+        }
+        return false;
+    }
+
     $scope.login = function(credentials){
         $http.post('/login', credentials).then(function(response){
             localStorage.setItem('user',response.data.token)
+            localStorage.setItem('type', response.data.type)
             toastr.success('Hi, you are successfully logged in!', 'Login Success!');
             $location.url('/');
         }),function(error){

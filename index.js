@@ -75,7 +75,8 @@ app.post('/login', function(req, res) {
                 res.send({
                     success: true,
                     message: 'Admin Authenticated',
-                    token: token
+                    token: token,
+                    type : 'admin'
                 })
                 console.log("Authentication passed.");
             }

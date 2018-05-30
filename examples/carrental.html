@@ -51,6 +51,7 @@
                         <li ng-if="!check_login()"><a style="color:#FFFFFF" ng-class="getClass('/login')" href="#!login" ng-click="menuItemClicked()" data-hover="Login">Login</a></li>
                         <li ng-if="!check_login()"><a style="color:#FFFFFF" ng-class="getClass('/register')" href="#!register" ng-click="menuItemClicked()" data-hover="Register">Register</a></li>
                         <li ng-if="check_login()"><a style="color:#FFFFFF" href="#" ng-click="logout()" data-hover="Logout">Logout</a></li>
+                        <li ng-if="check_admin()"><a style="color:#FFFFFF" href="#" ng-click="" data-hover="Dashboard">Dashboard</a></li>
                       </ul>
                     </div> 
                   </nav>
