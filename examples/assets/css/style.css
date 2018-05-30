@@ -171,16 +171,7 @@ p{
     text-align:left;
     z-index: 999;
 }
-.w3ls_about_bottom h4 {
-    font-size: 2em;
-    color: #fff;
-    text-transform: capitalize;
-    line-height: 2em;
-    width: 70%;
-    margin: 0 auto 1em 0;
-    font-style: italic;
-    letter-spacing: 4px;
-}
+
 .w3ls_about_bottom h4 span{
     color:#00bcd4;
 }
@@ -2332,8 +2323,8 @@ p{
 }
 
 .frontside .card .card-body img {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 

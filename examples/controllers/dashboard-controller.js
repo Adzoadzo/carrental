@@ -10,6 +10,7 @@ function DashboardController($scope, $http, toastr) {
     refresh_cars();
     refresh_employees();
     refresh_users();
+    refresh_manufacturers();
     get_orders();
 
     $scope.add_car = function() {
@@ -51,6 +52,15 @@ function DashboardController($scope, $http, toastr) {
             }
     };
 
+    function refresh_manufacturers() {
+        $http.get('/getManufacturer').then(function(res) {
+                $scope.manufacturers_list = res.data;
+            }),
+            function(res) {
+                alert(res.status);
+            }
+    };
+
     function refresh_users(){
         $http.get('/admin/getUser', config).then(function(res){
             $scope.users_list = res.data;
@@ -82,6 +92,16 @@ function DashboardController($scope, $http, toastr) {
             employee_name : employee.employee_name,
             employee_salary : employee.employee_salary,
             employee_country : employee.employee_country
+        };
+    }
+
+    $scope.edit_man = function(manufacturer){
+        $scope.manufacturer = {
+            _id : manufacturer._id,
+            manufacturer_name : manufacturer.manufacturer_name,
+            manufacturer_picture : manufacturer.manufacturer_picture,
+            manufacturer_frontTxt : manufacturer.manufacturer_frontTxt,
+            manufacturer_backTxt : manufacturer.manufacturer_backTxt
         };
     }
 
@@ -153,6 +173,33 @@ function DashboardController($scope, $http, toastr) {
     function get_incomes(){
         $http.get('/admin/getRentIncomes', config).then(function(res){
             $scope.incomes = res.data[0];
+        });
+    }
+
+    $scope.add_manufacturer = function() {
+        $http.post('/admin/addManufacturer', $scope.manufacturer, config).then(function(data) {
+            $scope.manufacturer = null;
+            //toastr.success("You are successfully registered! Please Login!", "Registration Successfull!");
+            //$location.url('/login');
+            $scope.manufacturers_list.push(data);
+            toastr.success('Manufacturer added successfully!');
+            refresh_manufacturers();
+        });
+    }
+
+    $scope.update_manufacturer = function(){
+        $http.put('/admin/manufacturer/'+$scope.manufacturer._id, $scope.manufacturer, config).then(function(data){
+          refresh_manufacturers();
+          //console.log($scope.car);
+          toastr.info('You have successfully updated manufacturer!');
+          $scope.manufacturer = null;
+        });
+      }
+
+    $scope.delete_manufacturer = function(manufacturer_id, manufacturer_name){
+        $http.delete('/admin/manufacturer/'+ manufacturer_id, config).then(function(data){
+            refresh_manufacturers();
+            toastr.success(manufacturer_name + ' deleted');
         });
     }
 

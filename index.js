@@ -283,6 +283,47 @@ app.get('/admin/getRentIncomes', function(req, res){
     });
 });
 
+app.post('/admin/addManufacturer', function(req, res){
+    req.body._id = null;
+    var manufacturer = req.body;
+    database.collection('manufacturers').insert(manufacturer, function(err, data){
+        if(err) return console.log(err);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(manufacturer);
+    })
+});
+
+app.put('/admin/manufacturer/:manufacturer_id', function(req, res){    
+    database.collection('manufacturers').findAndModify(
+       {_id: new MongoId(req.params.manufacturer_id)}, // query
+       [['_id','asc']],  // sort order
+       {$set : {manufacturer_name: req.body.manufacturer_name, manufacturer_picture: req.body.manufacturer_picture, 
+           manufacturer_frontTxt: req.body.manufacturer_frontTxt, manufacturer_backTxt: req.body.manufacturer_backTxt
+        }}, // replacement, replaces only the field "hi"
+       function(err, doc) {
+           if (err){
+               console.warn(err.message);  // returns error if no matching object found
+           }else{
+               res.json(doc);
+           }
+       });
+});
+
+app.delete('/admin/manufacturer/:manufacturer_id', function(req, res){
+    database.collection('manufacturers').remove({_id: new MongoId(req.params.manufacturer_id)},
+    function(err, data){
+        res.json(data);
+    });
+});
+
+app.get('/getManufacturer', function(request, response) {
+    database.collection('manufacturers').find().toArray((err, manufacturers) => {
+        if (err) return console.log(err);
+        response.setHeader('Content-Type', 'application/json');
+        response.send(manufacturers);
+    })
+});
+
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {
     if (err) throw err;
 
