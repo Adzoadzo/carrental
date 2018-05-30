@@ -37,4 +37,16 @@ function SiteController($scope, $http, toastr, $location){
             console.log($scope.car_info);
         })
     };
+
+    $scope.openNavigationDrawer = function(){
+        if ($scope.mobileNavigationOpen == 'nav-open'){
+            $scope.mobileNavigationOpen = '';
+        }else{
+            $scope.mobileNavigationOpen = 'nav-open';
+        }
+        
+    }
+    $scope.menuItemClicked = function(){
+        $scope.mobileNavigationOpen = '';
+    }
 }

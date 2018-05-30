@@ -1613,6 +1613,14 @@ p{
    }
 }
 @media(max-width:736px){
+    .card-img-top{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 160px;
+        width: 350px;
+    }
     .cbp-ig-grid li {
         width: 23%;
         float: none;
@@ -1666,6 +1674,14 @@ p{
    }
 }
 @media(max-width:667px){
+    .card-img-top{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 160px;
+        width: 350px;
+    }
     .w3features-right {
         padding: 0 3em;
         margin-left: 11em;
@@ -1706,6 +1722,17 @@ p{
    }
 }
 @media(max-width:600px){
+    .card-img-top{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 160px;
+        width: 350px;
+    }
+    .singleImage{
+        height: 210px;
+    }
     .w3features-right {
         padding: 0 1em;
    }
@@ -1717,6 +1744,10 @@ p{
    }
 }
 @media(max-width:568px){
+    .card-img-top{
+        width: 410px;
+        height: 200px;
+    }
     .w3_agileits_contact_grid_left {
         float: none;
         width: 100%;
@@ -1737,6 +1768,10 @@ p{
    }
 }
 @media(max-width:480px){
+    .card-img-top{
+        width: 410px;
+        height: 200px;
+    }
     .wthree-soon-agileinfo {
         width: 93%;
    }
@@ -1836,6 +1871,10 @@ p{
    }
 }
 @media(max-width:414px){
+    .card-img-top{
+        width: 410px;
+        height: 200px;
+    }
     .banner-text h2,.banner-text h3 {
         font-size: 3em;
         letter-spacing: 2px;
@@ -1946,6 +1985,10 @@ p{
    }
 }
 @media(max-width:384px){
+    .card-img-top{
+        width: 410px;
+        height: 200px;
+    }
     .about-modal .modal-body h5 {
         font-size: 1.2em;
         letter-spacing: 1px;
@@ -1973,6 +2016,10 @@ p{
    }
 }
 @media(max-width:375px){
+    .card-img-top{
+        width: 410px;
+        height: 200px;
+    }
     .banner-text p {
         letter-spacing: 0px;
         font-size: 0.9em;
@@ -1997,6 +2044,10 @@ p{
    }
 }
 @media(max-width:320px){
+    .card-img-top{
+        width: 410px;
+        height: 200px;
+    }
     .wthree-soon h5 {
         font-size: 1em;
    }
@@ -2123,9 +2174,22 @@ p{
    }
 }
 @media only screen and (max-width:620px) {
+    .card-img-top{
+        width: 340px;
+        height: 165px;
+    }
     .wrapper{
-        margin-left: 0px;
         width: 100%;
+   }
+   .singleImage{
+        height: 190px;
+        width: 380px;
+    }
+   .logo{
+       margin-left:auto;
+   }
+   .center-top{
+       visibility: hidden;
    }
 }
 /*-- //responsive-design --*/
