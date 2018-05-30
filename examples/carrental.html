@@ -43,15 +43,20 @@
                     <!-- Navbar links -->
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                       <ul class="navbar-nav ml-auto">
-                        <li><a style="color:#FFFFFF" ng-class="getClass('/home')" href="#!home" ng-click="menuItemClicked()" data-hover="Home">Home</a></li> 
-                        <li><a style="color:#FFFFFF" ng-class="getClass('/about')" href="#!about" ng-click="menuItemClicked()" data-hover="About">About</a></li>
-                        <li><a style="color:#FFFFFF" ng-class="getClass('/features')" href="#!features" ng-click="menuItemClicked()" data-hover="Features">Features</a></li>
-                        <li><a style="color:#FFFFFF" ng-class="getClass('/gallery')" href="#!gallery" ng-click="menuItemClicked()" data-hover="Gallery">Gallery</a></li>
-                        <li><a style="color:#FFFFFF" ng-class="getClass('/cars')" href="#!cars" ng-click="menuItemClicked()" data-hover="Cars">Cars</a></li>
+                        <li ng-if="!check_admin()"><a style="color:#FFFFFF" ng-class="getClass('/home')" href="#!home" ng-click="menuItemClicked()" data-hover="Home">Home</a></li> 
+                        <li ng-if="!check_admin()"><a style="color:#FFFFFF" ng-class="getClass('/about')" href="#!about" ng-click="menuItemClicked()" data-hover="About">About</a></li>
+                        <li ng-if="!check_admin()"><a style="color:#FFFFFF" ng-class="getClass('/features')" href="#!features" ng-click="menuItemClicked()" data-hover="Features">Features</a></li>
+                        <li ng-if="!check_admin()"><a style="color:#FFFFFF" ng-class="getClass('/gallery')" href="#!gallery" ng-click="menuItemClicked()" data-hover="Gallery">Gallery</a></li>
+                        <li ng-if="!check_admin()"><a style="color:#FFFFFF" ng-class="getClass('/cars')" href="#!cars" ng-click="menuItemClicked()" data-hover="Cars">Cars</a></li>
                         <li ng-if="!check_login()"><a style="color:#FFFFFF" ng-class="getClass('/login')" href="#!login" ng-click="menuItemClicked()" data-hover="Login">Login</a></li>
                         <li ng-if="!check_login()"><a style="color:#FFFFFF" ng-class="getClass('/register')" href="#!register" ng-click="menuItemClicked()" data-hover="Register">Register</a></li>
+                        <li ng-if="check_admin()"><a style="color:#FFFFFF" href="#!dashboard" ng-class="getClass('/dashboard')" ng-click="menuItemClicked()" data-hover="Dashboard">Dashboard</a></li>
+                        <li ng-if="check_admin()"><a style="color:#FFFFFF" href="#!carsControl" ng-class="getClass('/carsControl')" ng-click="menuItemClicked()" data-hover="CarsControl">Cars</a></li>
+                        <li ng-if="check_admin()"><a style="color:#FFFFFF" href="#!usersControl" ng-class="getClass('/usersControl')" ng-click="menuItemClicked()" data-hover="UsersControl">Users</a></li>
+                        <li ng-if="check_admin()"><a style="color:#FFFFFF" href="#!employeesControl" ng-class="getClass('/employeesControl')" ng-click="menuItemClicked()" data-hover="EmployeesControl">Employees</a></li>
+                        <li ng-if="check_admin()"><a style="color:#FFFFFF" href="#!ordersControl" ng-class="getClass('/ordersControl')" ng-click="menuItemClicked()" data-hover="OrdersControl">Orders</a></li>
+                        <li ng-if="check_admin()"><a style="color:#FFFFFF" href="#!manufacturers" ng-class="getClass('/manufacturers')" ng-click="menuItemClicked()" data-hover="Manufacturers">Manufacturers</a></li>
                         <li ng-if="check_login()"><a style="color:#FFFFFF" href="#" ng-click="logout()" data-hover="Logout">Logout</a></li>
-                        <li ng-if="check_admin()"><a style="color:#FFFFFF" href="#" ng-click="" data-hover="Dashboard">Dashboard</a></li>
                       </ul>
                     </div> 
                   </nav>

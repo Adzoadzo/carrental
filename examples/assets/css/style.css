@@ -454,7 +454,27 @@ p{
     margin-top: 80px;
     padding-bottom: 30px;
 }
+.cars-control{
+    background-color: white;
+    padding: 20px;
+}
 /*-- //cars --*/
+.users-control{
+    background-color: white;
+    padding: 25px;
+}
+.employees-control{
+    background-color: white;
+    padding: 20px;
+}
+.orders-control{
+    background-color: white;
+    padding: 20px;
+}
+.manufacturers{
+    background-color: white;
+    padding: 20px;
+}
 /*-- gallery --*/
 .gallry-agile-grids {
     padding: 0;

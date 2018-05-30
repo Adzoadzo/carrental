@@ -1,0 +1,66 @@
+<div class="employees-control">
+        <div class="row">
+                <div class="col-lg-12 col-md-12">
+                   <table class="table table-hover">
+                      <thead>
+                         <tr>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Country</th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         <tr>
+                            <td>
+                               <input class="form-control" placeholder="Name" ng-model="employee.employee_name" />
+                            </td>
+                            <td>
+                               <input class="form-control" placeholder="Salary" type="number" ng-model="employee.employee_salary" />
+                            </td>
+                            <td>
+                               <input class="form-control" placeholder="Country" ng-model="employee.employee_country" />
+                            </td>
+                            <td>
+                               <div class="btn-group">
+                                  <button class="btn btn-primary btn-manji" ng-click="add_employee()">Add</button>
+                                  <button class="btn btn-success btn-manji" ng-click="update_employee()">Update</button>
+                               </div>
+                            </td>
+                         </tr>
+                      </tbody>
+                   </table>
+                   <div class="card" style="height: auto;">
+                      <div class="card-header card-header-warning">
+                         <h4 class="card-title">Employees Stats</h4>
+                         <p class="card-category">New employees on {{date | date:'d MMMM, yyyy'}}</p>
+                      </div>
+                      <div class="card-body table-responsive">
+                         <table class="table table-hover">
+                            <thead class="text-warning">
+                               <th>Name</th>
+                               <th>Salary</th>
+                               <th>Country</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr ng-repeat="employee in employee_list">
+                                  <td>{{employee.employee_name}}</td>
+                                  <td>{{employee.employee_salary}} KM</td>
+                                  <td>{{employee.employee_country}}</td>
+                                  <td>
+                                     <div class="btn-group">
+                                        <button class="btn btn-warning" ng-click="edit_emp(employee)">Edit</button>
+                                        <button class="btn btn-danger" ng-click="delete_employee(employee._id, employee.employee_name)">Delete</button>
+                                     </div>
+                                  </td>
+                               </tr>
+                               <tr>
+                                  <td colspan="2">Total Employee Expenses:</td>
+                                  <td style="color: blue; font-weight:800">{{expenses.total}} KM</td>
+                               </tr>
+                            </tbody>
+                         </table>
+                      </div>
+                   </div>
+                </div>
+</div>
