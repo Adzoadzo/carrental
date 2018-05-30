@@ -2,13 +2,13 @@
 <div class="cars">
     <div class="row">
         <div class="col-sm-3" ng-repeat="car in cars_list">
-            <div class="card">
+            <div class="card cardCar">
                 <img class="card-img-top" src="{{car.car_picture}}" alt="Card image cap" ng-click="get_carById(car._id)">
                 <div class="card-body">
                   <a ng-href="#!/car/{{car._id}}" ng-click="getSingle(car._id)">More Info</a>
                   <h5 class="card-title">{{car.car_name}}</h5>
                   <p style="color: #800000;"class="card-text">{{car.car_price}} KM</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
                 </div>
               </div>
         </div>
