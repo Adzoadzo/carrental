@@ -113,7 +113,7 @@ div#scrollzipPoint {
     background-position: 50% 50%;
 }
 /*-- about --*/
-.about,.features,.services,.gallery,.contact{
+.about,.features,.services,.contact{
     padding:6em 0;
 }
 .about{
@@ -476,6 +476,9 @@ p{
     padding: 20px;
 }
 /*-- gallery --*/
+#gallery{
+    background-color: whitesmoke;
+}
 .gallry-agile-grids {
     padding: 0;
 }
@@ -2415,4 +2418,60 @@ p{
 .section-title{
     text-align: center;
     margin-bottom: 40px;
+}
+
+
+
+
+
+.gallery a {
+	position: relative;
+	display: block;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 100px;
+    height: 100%;
+	width: 100%;
+    padding-top:40px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    z-index: 20;
+}
+
+.overlay2{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 100px;
+    height: 100%;
+	width: 100%;
+    padding-top:100px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    z-index: 20;
+}
+
+.gallery a:hover .overlay ,
+.gallery a:hover .overlay2 {
+    opacity: 0.8;
+}
+
+.img-space{
+    margin:20px 0px;
 }
