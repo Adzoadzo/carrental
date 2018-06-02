@@ -350,6 +350,7 @@ app.post('/sendmail', function(request, response){
           console.log(error);
         } else {
           console.log('Email sent: ' + info.response);
+          response.send(info);
         }
       });
 });

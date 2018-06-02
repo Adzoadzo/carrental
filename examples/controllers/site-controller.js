@@ -35,7 +35,7 @@ function SiteController($scope, $http, toastr, $location){
 
     $scope.sendmail = function(email){
         $http.post('/sendmail', email).then(function(response){
-            toastr.success('Hi, you are successfully logged in!', 'Login Success!');
+            toastr.success('Email Sent!');
         }),function(error){
             console.log(error);
         }
