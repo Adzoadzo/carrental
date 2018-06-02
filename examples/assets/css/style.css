@@ -1211,6 +1211,13 @@ p{
    }
 }
 @media(max-width:1366px){
+    .logo{
+        margin-left:80px;
+    }
+    .car-info{
+        margin-top: 80px;
+        padding: 30px;
+    }
     .wthree-soon-agileinfo {
         width: 85%;
    }
@@ -2243,6 +2250,9 @@ p{
     border: 1px solid #d0dce3;
 }
 @media (min-width: 990px) and (max-width: 1180px) {
+    .logo{
+        margin-left:0px;
+    }
     .grid_rezForm {
         width: 540px;
    }
@@ -2306,6 +2316,7 @@ p{
         -moz-box-sizing: border-box;
         box-sizing: border-box;
    }
+
 }
 
 

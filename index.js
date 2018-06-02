@@ -5,6 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const jwt_secret = 'WU5CjF8fHxG40S2t7oyk';
 const jwt_admin = 'SJwt25Wq62SFfjiw92sR';
 
+var nodemailer = require('nodemailer');
 var jwt = require('jsonwebtoken');
 var MongoId = require('mongodb').ObjectID;
 var database;
@@ -87,7 +88,8 @@ app.post('/login', function(req, res) {
                 res.send({
                     success: true,
                     message: 'Authenticated',
-                    token: token
+                    token: token,
+                    type: "user"
                 })
                 console.log("Authentication passed.");
             }
@@ -124,6 +126,7 @@ app.get('/getCar', function(request, response) {
 });*/
 
 app.post('/register', function(req, res) {
+    req.body.type = "user";
     req.body._id = null;
     var user = req.body;
     database.collection('users').insert(user, function(err, data) {
@@ -323,6 +326,32 @@ app.get('/getManufacturer', function(request, response) {
         response.setHeader('Content-Type', 'application/json');
         response.send(manufacturers);
     })
+});
+
+app.post('/sendmail', function(request, response){
+    var email = request.body;
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'm.hadzimehanovic@gmail.com',
+          pass: '062116767mujo'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'm.hadzimehanovic@gmail.com',
+        to: email.email,
+        subject: email.subject,
+        text: 'Name: ' + email.name + '\n' +email.body
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
 });
 
 MongoClient.connect('mongodb://localhost:27017', function(err, client) {

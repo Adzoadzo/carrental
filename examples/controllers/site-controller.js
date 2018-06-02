@@ -1,6 +1,8 @@
 function SiteController($scope, $http, toastr, $location){
     console.log("Hello from Site Controller");
 
+    refresh_manufacturers();
+
     $scope.check_login = function(){
         if(localStorage.getItem('user')){
             return true;
@@ -31,6 +33,23 @@ function SiteController($scope, $http, toastr, $location){
         toastr.info("Successfully logged out!", "Logged Out!");
     }
 
+    $scope.sendmail = function(email){
+        $http.post('/sendmail', email).then(function(response){
+            toastr.success('Hi, you are successfully logged in!', 'Login Success!');
+        }),function(error){
+            console.log(error);
+        }
+    }
+
+    function refresh_manufacturers() {
+        $http.get('/getManufacturer').then(function(res) {
+                $scope.manufacturers_list = res.data;
+            }),
+            function(res) {
+                alert(res.status);
+            }
+    };
+
     $scope.getSingle = function(id){
         $http.get('/getSingle/' + id).then(function(res) {
             $scope.car_info = res.data[0];
@@ -46,6 +65,7 @@ function SiteController($scope, $http, toastr, $location){
         }
         
     }
+
     $scope.menuItemClicked = function(){
         $scope.mobileNavigationOpen = '';
     }

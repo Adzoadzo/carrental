@@ -54,7 +54,7 @@ function DashboardController($scope, $http, toastr) {
 
     function refresh_manufacturers() {
         $http.get('/getManufacturer').then(function(res) {
-                $scope.manufacturers_list = res.data;
+                $rootScope.manufacturers_list = res.data;
             }),
             function(res) {
                 alert(res.status);
